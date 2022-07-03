@@ -1,6 +1,7 @@
-require('lspconfig').bashls.setup({})
-require('lspconfig').cssls.setup({})
+-- require('lspconfig').bashls.setup({})
+-- require('lspconfig').cssls.setup({})
 require('lspconfig').gopls.setup({})
+--[[
 require('lspconfig').html.setup({})
 require('lspconfig').jsonls.setup({})
 require('lspconfig').pyright.setup({})
@@ -42,3 +43,4 @@ require('lspconfig').sumneko_lua.setup({
         },
     },
 })
+]]--

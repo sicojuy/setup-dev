@@ -60,4 +60,43 @@ return require('packer').startup(function()
                 require('colorizer').setup()
             end,
         }
+
+        -- smoothy scroll
+        use 'psliwka/vim-smoothie'
+
+        -- split and join in vim
+        use 'AndrewRadev/splitjoin.vim'
+
+        -- vimwiki
+        use 'vimwiki/vimwiki'
+
+        -- vim plugin testing
+        use 'junegunn/vader.vim'
+
+        -- treesitter
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            run = ':TSUpdate',
+        }
+
+        -- lsp client config
+        use 'neovim/nvim-lspconfig'
+        use {
+            'hrsh7th/nvim-cmp', -- completion
+            requires = {
+                'hrsh7th/cmp-nvim-lsp', -- cmp lsp
+                'hrsh7th/cmp-nvim-lua', -- cmp lua vim api
+                'hrsh7th/cmp-buffer', -- cmp buffer
+                'hrsh7th/cmp-path', -- cmp path
+                'hrsh7th/cmp-calc', -- cmp calculator
+                'hrsh7th/cmp-emoji', -- cmp emojis
+            },
+        }
+
+        -- rust lang support
+        -- use 'rust-lang/rust.vim'
+
+        -- lua repl
+        -- use 'rafcamlet/nvim-luapad'
+
 end)
