@@ -23,9 +23,6 @@ return require('packer').startup(function()
         -- Indent line
         use 'Yggdroot/indentLine'
 
-        -- Auto highlight hover word
-        use 'RRethy/vim-illuminate'
-
         -- Intelligently reopen files at your last edit position.
         use 'farmergreg/vim-lastplace'
 
@@ -41,8 +38,8 @@ return require('packer').startup(function()
         -- Git conflict marker
         use 'rhysd/conflict-marker.vim'
 
-        -- split and join in vim
-        use 'AndrewRadev/splitjoin.vim'
+        -- align
+        use 'junegunn/vim-easy-align'
 
         -- smoothy scroll
         -- use 'psliwka/vim-smoothie'
@@ -56,14 +53,28 @@ return require('packer').startup(function()
         -- vim plugin testing
         use 'junegunn/vader.vim'
 
+        -- thrift
+        use 'solarnz/thrift.vim'
+
+        -- hop anywhere
+        use 'phaazon/hop.nvim'
+
+        -- markdown
+        use {
+            "iamcco/markdown-preview.nvim",
+            run = function()
+                vim.fn["mkdp#util#install"]()
+            end,
+        }
+
+        -- nvim-tree
+        use 'kyazdani42/nvim-tree.lua'
+
         -- treesitter
         use {
             'nvim-treesitter/nvim-treesitter',
             run = ':TSUpdate',
         }
-
-        -- nvim-tree
-		use 'kyazdani42/nvim-tree.lua'
 
         -- Fuzzy picker
         use {

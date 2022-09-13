@@ -28,4 +28,9 @@ function M.shell_format(opts)
     f.winrestview(view)
 end
 
+function M.json_format(opts)
+    local view = f.winsaveview()
+    f.execute(':silent !python -m json.tool ' .. opts.file)
+    a.nvim_exec('edit!', true)
+    f.winrestview(view)
 return M

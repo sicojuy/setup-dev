@@ -42,9 +42,20 @@ nnoremap('<leader>tt', '<cmd>tabnew<cr>')
 nnoremap('<leader>t[', '<cmd>tabmove -1<cr>')
 nnoremap('<leader>t]', '<cmd>tabmove +1<cr>')
 
+-- hop.nvim
+nnoremap('<leader><leader>f', '<cmd>HopChar1<cr>')
+nnoremap('<leader><leader>w', '<cmd>HopWord<cr>')
+
+-- align
+vnoremap('ga', '<Plug>(EasyAlign)')
+nnoremap('ga', '<Plug>(EasyAlign)')
+
 -- buf
 nnoremap('<leader>[', 'bprev')
 nnoremap('<leader>]', 'bnext')
+
+-- markdown preview
+nnoremap('<leader>m', '<Plug>(MarkdownPreviewToggle)')
 
 -- quickfix
 nnoremap('<leader>cc', '<cmd>cclose<cr>')
