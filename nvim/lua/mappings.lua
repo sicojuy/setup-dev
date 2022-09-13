@@ -3,41 +3,31 @@ local nnoremap = require('common').nnoremap
 local inoremap = require('common').inoremap
 local vnoremap = require('common').vnoremap
 local cnoremap = require('common').cnoremap
--- common
-nnoremap('<leader>#', '<cmd>let @/ = ""<cr><Esc>')
-nnoremap('n', 'nzzzv')
-nnoremap('N', 'Nzzzv')
-nnoremap('<leader>q', '<cmd>q!<cr>')
-nnoremap('<leader>e', '<cmd>e!<cr>')
-nnoremap('<leader>Q', '<cmd>qa!<cr>')
-nnoremap('<leader>w', '<cmd>wq!<cr>')
-nnoremap('<leader>n', '<cmd>set nonumber norelativenumber<cr>')
-nnoremap('<leader>N', '<cmd>set number<cr>')
-nnoremap('<leader>R', '<cmd>set relativenumber<cr>')
+
+-- copy
+vnoremap('<leader>y', '"+y')
+nnoremap('<leader>yy', '"+yy')
+nnoremap('<leader>p', '"+p')
+
 -- moving
-inoremap('<c-a>', '<Esc>I')
+inoremap('<c-a>', '<Home>')
 inoremap('<c-e>', '<End>')
-nnoremap('k', 'gk')
-nnoremap('j', 'gj')
--- editing
-nnoremap('Y', 'y$')
-inoremap('<c-d>', '<Esc>ddi')
-nnoremap('<leader>pp', '"0p')
-nnoremap('<a-Up>', '<cmd>m .-2<cr>==')
-nnoremap('<a-Down>', '<cmd>m .+1<cr>==')
-vnoremap('<a-Up>', ":move '<-2<CR>gv=gv")
-vnoremap('<a-Down>', ":move '>+1<CR>gv=gv")
--- splits
-nnoremap('<leader>s', '<c-w>w')
-nnoremap('<leader>j', '<c-w>j')
-nnoremap('<leader>k', '<c-w>k')
-nnoremap('<leader>h', '<c-w>h')
-nnoremap('<leader>l', '<c-w>l')
+inoremap('<c-f>', '<Right>')
+inoremap('<c-b>', '<Left>')
+cnoremap('<c-a>', '<Home>')
+cnoremap('<c-e>', '<End>')
+cnoremap('<c-f>', '<Right>')
+cnoremap('<Esc>f', '<S-Right>')
+cnoremap('<Esc>b', '<S-Left>')
+
+-- window
+nnoremap('<c-h>', '<c-w>h')
+nnoremap('<c-j>', '<c-w>j')
+nnoremap('<c-k>', '<c-w>k')
+nnoremap('<c-l>', '<c-w>l')
+
 -- tab
-nnoremap('<s-Tab>', 'gT')
 nnoremap('<Tab>', 'gt')
-nnoremap('<leader>t[', '<cmd>tabmove -1<cr>')
-nnoremap('<leader>t]', '<cmd>tabmove +1<cr>')
 nnoremap('<leader>1', '1gt')
 nnoremap('<leader>2', '2gt')
 nnoremap('<leader>3', '3gt')
@@ -48,48 +38,71 @@ nnoremap('<leader>7', '7gt')
 nnoremap('<leader>8', '8gt')
 nnoremap('<leader>9', '9gt')
 nnoremap('<leader>0', '<cmd>tablast<cr>')
+nnoremap('<leader>tt', '<cmd>tabnew<cr>')
+nnoremap('<leader>t[', '<cmd>tabmove -1<cr>')
+nnoremap('<leader>t]', '<cmd>tabmove +1<cr>')
+
 -- buf
 nnoremap('<leader>[', 'bprev')
 nnoremap('<leader>]', 'bnext')
+
 -- quickfix
 nnoremap('<leader>cc', '<cmd>cclose<cr>')
-nnoremap('<leader>;', '<cmd>cprev<cr>')
-nnoremap("<leader>'", '<cmd>cnext<cr>')
--- command
-cnoremap('<c-a>', '<Home>')
-cnoremap('<c-e>', '<End>')
+nnoremap('<leader>,', '<cmd>cprev<cr>')
+nnoremap('<leader>.', '<cmd>cnext<cr>')
 
 -- LSP
-nnoremap('<leader>ld', '<cmd>Telescope lsp_definitions<cr>')
-nnoremap('<leader>lD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-nnoremap('<leader>lt', '<cmd>Telescope lsp_type_definitions<cr>')
-nnoremap('<leader>li', '<cmd>Telescope lsp_implementations<cr>')
-nnoremap('K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-nnoremap('U', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-nnoremap('<leader>lr', '<cmd>Telescope lsp_references<cr>')
-nnoremap('<leader>ls', '<cmd>Telescope lsp_document_symbols<cr>')
-nnoremap('<leader>lS', '<cmd>Telescope lsp_workspace_symbols<cr>')
-nnoremap('<leader>lR', '<cmd>lua vim.lsp.buf.rename()<cr>')
-nnoremap('<leader>lf', '<cmd>lua vim.lsp.buf.formatting()<cr>')
+-- Mappings.
+-- See `:help vim.diagnostic.*` for documentation on any of the below functions
+local opts = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
--- plug manager
-nnoremap('<leader>ps', '<cmd>PackerSync<cr>')
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
--- dial.nvim
-map('n', '<c-a>', '<Plug>(dial-increment)')
-map('n', '<c-x>', '<Plug>(dial-decrement)')
-map('n', '<c-a>', '<Plug>(dial-increment)')
-map('n', '<c-x>', '<Plug>(dial-decrement)')
-map('n', 'g<c-a>', '<Plug>(dial-increment-additional)')
-map('n', 'g<c-x>', '<Plug>(dial-decrement-additional)')
+  -- Mappings.
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+end
 
--- hop.nvim
-nnoremap('s', '<cmd>HopChar2<cr>')
-nnoremap('S', '<cmd>HopWord<cr>')
-nnoremap('<c-l>', '<cmd>HopLine<cr>')
-
--- ferret
-vim.g.FerretMap = 0
-nnoremap('<leader>fa', '<Plug>(FerretLack)')
-nnoremap('<leader>fw', '<Plug>(FerretAckWord)')
-nnoremap('<leader>fs', '<Plug>(FerretAcks)')
+local lsp_flags = {
+  -- This is the default in Nvim 0.7+
+  debounce_text_changes = 150,
+}
+require('lspconfig')['pyright'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['tsserver'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+require('lspconfig')['rust_analyzer'].setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- Server-specific settings...
+    settings = {
+      ["rust-analyzer"] = {}
+    }
+}

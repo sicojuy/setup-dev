@@ -5,7 +5,7 @@ vim.cmd('syntax enable')
 vim.g.mapleader = ";"
 
 vim.opt.number = true -- show line number
-vim.opt.relativenumber = true -- show relative number
+vim.opt.relativenumber = false -- show relative number
 vim.opt.history = 1000 -- history commond count
 vim.opt.backup = false -- no backup
 vim.opt.writebackup = false -- no writebackup

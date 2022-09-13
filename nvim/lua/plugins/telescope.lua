@@ -1,6 +1,6 @@
 local nnoremap = require('../common').nnoremap
-
 local actions = require('telescope.actions')
+
 require('telescope').setup({
     defaults = require('telescope.themes').get_ivy({
         mappings = {
@@ -14,7 +14,6 @@ require('telescope').setup({
 })
 
 require('telescope').load_extension('fzf')
--- require('telescope').load_extension('session-lens')
 
 nnoremap('<leader>ff', '<cmd>Telescope find_files<cr>')
 nnoremap('<leader>fd', '<cmd>Telescope git_files<cr>')

@@ -4,22 +4,29 @@
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 
-# Language servers
-yarn global add bash-language-server
-yarn global add vscode-langservers-extracted
+# dependencies
 go install golang.org/x/tools/gopls@latest
-yarn global add pyright
+
+brew install ripgrep
+brew install fd
 brew install rust-analyzer
-gem install solargraph
+yarn global add bash-language-server
+yarn global add pyright
 yarn global add sql-language-server
 yarn global add typescript typescript-language-server
+
+# vim
 yarn global add vim-language-server
+
+# vue
 yarn global add vls
+
+# yaml
 yarn global add yaml-language-server
 
 # Lua LSP
 brew install ninja
-cd ~/dev || exit 1
+cd ~/work || exit 1
 git clone https://github.com/sumneko/lua-language-server
 cd lua-language-server || exit 1
 git submodule update --init --recursive

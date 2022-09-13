@@ -1,27 +1,25 @@
 local formatter = require('formatter')
 
-local function trim_whitespace()
-    local exclude_filetypes = { 'markdown', 'vimwiki' }
-    local ft = vim.bo.filetype
-    for _, ef in ipairs(exclude_filetypes) do
-        if ft == ef then
-            return
-        end
-    end
-    local view = vim.fn.winsaveview()
-    vim.cmd([[keeppatterns %s/\s\+$//e]])
-    vim.cmd([[silent! 0;/^\%(\n*.\)\@!/,$d]])
-    vim.fn.winrestview(view)
-end
-
-local editor = vim.api.nvim_create_augroup('editor_options', { clear = true })
-
+-- remove spaces
 vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
-    group = editor,
+    group = vim.api.nvim_create_augroup('editor_options', { clear = true }),
     pattern = { '*' },
-    callback = trim_whitespace,
+    callback = function()
+        local exclude_filetypes = { 'markdown', 'vimwiki' }
+        local ft = vim.bo.filetype
+        for _, ef in ipairs(exclude_filetypes) do
+            if ft == ef then
+                return
+            end
+        end
+        local view = vim.fn.winsaveview()
+        vim.cmd([[keeppatterns %s/\s\+$//e]])
+        vim.cmd([[silent! 0;/^\%(\n*.\)\@!/,$d]])
+        vim.fn.winrestview(view)
+    end,
 })
 
+-- highlight lag when yank
 vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     group = editor,
     pattern = { '*' },
@@ -30,33 +28,15 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     end,
 })
 
-vim.api.nvim_create_autocmd({ 'InsertEnter' }, {
-    group = editor,
-    pattern = { '*' },
-    callback = function()
-        vim.wo.relativenumber = false
-    end,
-})
-
-vim.api.nvim_create_autocmd({ 'InsertLeave' }, {
-    group = editor,
-    pattern = { '*' },
-    callback = function()
-        vim.wo.relativenumber = true
-    end,
-})
-
 -- filetypes
 vim.api.nvim_create_autocmd({ 'FileType' }, {
     group = editor,
     pattern = {
-        'beancount',
         'css',
         'html',
         'javascript',
-        'json',
-        'scss',
         'typescript',
+        'json',
         'yaml',
         'vim',
         'vue',
@@ -77,17 +57,6 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
         vim.bo.tabstop = 4
         vim.bo.shiftwidth = 4
         vim.bo.expandtab = false
-    end,
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-    group = editor,
-    pattern = {
-        'Brewfile',
-        'Gemfile',
-    },
-    callback = function()
-        vim.bo.filetype = 'ruby'
     end,
 })
 

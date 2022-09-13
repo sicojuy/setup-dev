@@ -15,12 +15,7 @@ return require('packer').startup(function()
         use 'vim-airline/vim-airline-themes'
 
         -- Tab line
-        use {
-            'crispgm/nvim-tabline',
-            config = function()
-                require('tabline').setup({})
-            end,
-        }
+        use 'crispgm/nvim-tabline'
 
         -- Show how many search matchs
         use 'google/vim-searchindex'
@@ -37,15 +32,8 @@ return require('packer').startup(function()
         -- Vim notify toast
         use 'rcarriga/nvim-notify'
 
-        -- Fuzzy picker
-        use {
-            'nvim-telescope/telescope.nvim',
-            requires = { {'nvim-lua/plenary.nvim'} }
-        }
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-
-        -- Terminal
-        use 'akinsho/toggleterm.nvim'
+        -- Color codes rendering
+        use 'norcalli/nvim-colorizer.lua'
 
         -- Git decorations
         use 'lewis6991/gitsigns.nvim'
@@ -53,19 +41,14 @@ return require('packer').startup(function()
         -- Git conflict marker
         use 'rhysd/conflict-marker.vim'
 
-        -- Color codes rendering
-        use {
-            'norcalli/nvim-colorizer.lua',
-            config = function()
-                require('colorizer').setup()
-            end,
-        }
-
-        -- smoothy scroll
-        use 'psliwka/vim-smoothie'
-
         -- split and join in vim
         use 'AndrewRadev/splitjoin.vim'
+
+        -- smoothy scroll
+        -- use 'psliwka/vim-smoothie'
+
+        -- Terminal
+        use 'akinsho/toggleterm.nvim'
 
         -- vimwiki
         use 'vimwiki/vimwiki'
@@ -79,17 +62,27 @@ return require('packer').startup(function()
             run = ':TSUpdate',
         }
 
+        -- nvim-tree
+		use 'kyazdani42/nvim-tree.lua'
+
+        -- Fuzzy picker
+        use {
+            'nvim-telescope/telescope.nvim',
+            requires = { {'nvim-lua/plenary.nvim'} }
+        }
+        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
         -- lsp client config
         use 'neovim/nvim-lspconfig'
         use {
             'hrsh7th/nvim-cmp', -- completion
             requires = {
                 'hrsh7th/cmp-nvim-lsp', -- cmp lsp
-                'hrsh7th/cmp-nvim-lua', -- cmp lua vim api
                 'hrsh7th/cmp-buffer', -- cmp buffer
                 'hrsh7th/cmp-path', -- cmp path
-                'hrsh7th/cmp-calc', -- cmp calculator
-                'hrsh7th/cmp-emoji', -- cmp emojis
+                'hrsh7th/cmp-cmdline', -- cmp cmdline
+				'hrsh7th/cmp-vsnip',
+				'hrsh7th/vim-vsnip',
             },
         }
 

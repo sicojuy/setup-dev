@@ -12,12 +12,8 @@ cmp.setup({
     }),
     sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'nvim_lua' },
         { name = 'buffer' },
-        { name = 'vsnip' },
         { name = 'path' },
-        { name = 'calc' },
-        { name = 'emoji' },
     }),
     snippet = {
         expand = function(args)
