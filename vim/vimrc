@@ -16,9 +16,6 @@ Plug 'google/vim-searchindex'
 " 缩进线
 Plug 'Yggdroot/indentLine'
 
-" 自动高亮hover的单词
-Plug 'RRethy/vim-illuminate'
-
 " 打开文件跳到上次编辑的位置
 Plug 'farmergreg/vim-lastplace'
 
@@ -33,12 +30,6 @@ Plug 'preservim/nerdtree'
 
 " 代码补全
 Plug 'Valloric/YouCompleteMe'
-
-" 平滑滚动
-Plug 'psliwka/vim-smoothie'
-
-" 代码分隔合并
-Plug 'AndrewRadev/splitjoin.vim'
 
 " 检索
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
@@ -153,25 +144,6 @@ if has('termguicolors')
     set termguicolors   " 开启24bit的颜色
 endif
 
-" 文件搜索和补全时忽略下面扩展名
-set suffixes=.bak,~,.o,.h,.info,.swp,.obj,.pyc,.pyo,.egg-info,.class
-set wildignore=*.o,*.obj,*~,*.exe,*.a,*.pdb,*.lib "stuff to ignore when tab completing
-set wildignore+=*.so,*.dll,*.swp,*.egg,*.jar,*.class,*.pyc,*.pyo,*.bin,*.dex
-set wildignore+=*.zip,*.7z,*.rar,*.gz,*.tar,*.gzip,*.bz2,*.tgz,*.xz    " MacOSX/Linux
-set wildignore+=*DS_Store*,*.ipch
-set wildignore+=*.gem
-set wildignore+=*.png,*.jpg,*.gif,*.bmp,*.tga,*.pcx,*.ppm,*.img,*.iso
-set wildignore+=*.so,*.swp,*.zip,*/.Trash/**,*.pdf,*.dmg,*/.rbenv/**
-set wildignore+=*/.nx/**,*.app,*.git,.git
-set wildignore+=*.wav,*.mp3,*.ogg,*.pcm
-set wildignore+=*.mht,*.suo,*.sdf,*.jnlp
-set wildignore+=*.chm,*.epub,*.pdf,*.mobi,*.ttf
-set wildignore+=*.mp4,*.avi,*.flv,*.mov,*.mkv,*.swf,*.swc
-set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
-set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
-set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
-set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
-
 " 保存时自动清除尾部空白符
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -243,41 +215,37 @@ let g:Lf_PreviewInPopup = 1
 let g:Lf_StlColorscheme = 'gruvbox_material'
 let g:Lf_WorkingDirectoryMode = 'AF'
 let g:Lf_RootMarkers = ['.project', '.root', '.svn', '.git']
+let g:Lf_UseVersionControlTool = 0
 
 " 模糊匹配忽略扩展名
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.svn', '.git', '.hg'],
-    \ 'file': ['*.sw?', '~$*', '*.bak', '*.exe', '*.o', '*.so', '*.py[co]']
+    \ 'dir': ['.git', 'mock', 'kitex_gen', 'output'],
+    \ 'file': ['*.o', '*.so', '*.py[co]', '*_test.go']
     \ }
-
-" MRU 文件忽略扩展名
-let g:Lf_MruFileExclude = ['*.so', '*.exe', '*.py[co]', '*.sw?', '~$*', '*.bak', '*.tmp', '*.dll']
-
-" 禁用 function/buftag 的预览功能，可以手动用 p 预览
-let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " RG搜索配置
 let g:Lf_RgConfig = [
-    \ "--glob=!output",
-    \ "--glob=!git",
-    \ "--glob=!vendor",
-    \ "--glob=!mock",
-    \ "--glob=!mocks",
-    \ "--glob=!thrift_gen",
-    \ "--glob=!kitex_gen",
-    \ "--glob=!kite_gen"
+    \ "--glob=!.git/*",
+    \ "--glob=!*/mock/*",
+    \ "--glob=!kitex_gen/*",
+    \ "--glob=!output/*",
+    \ "--glob=!*.o",
+    \ "--glob=!*.so",
+    \ "--glob=!*.py[co]",
+    \ "--glob=!*_test.go",
 \ ]
+
+" 禁用 function/buftag 的预览功能，可以手动用 p 预览
+let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " 快捷键
 let g:Lf_ShortcutF = "<c-p>"
 noremap <leader>f :<C-U><C-R>=printf("LeaderfSelf %s", "")<CR><CR>
 noremap <leader>ff :<C-U><C-R>=printf("LeaderfFile %s", "")<CR><CR>
-noremap <leader>fb :<C-U><C-R>=printf("LeaderfBuffer %s", "")<CR><CR>
-noremap <leader>fm :<C-U><C-R>=printf("LeaderfMruCwd %s", "")<CR><CR>
-noremap <leader>ft :<C-U><C-R>=printf("LeaderfBufTag %s", "")<CR><CR>
-noremap <leader>fl :<C-U><C-R>=printf("LeaderfLine %s", "")<CR><CR>
 noremap <leader>fg :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
-noremap <leader>fo :<C-U>Leaderf! rg --recall<CR>
+noremap <leader>ft :<C-U><C-R>=printf("LeaderfBufTag %s", "")<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("LeaderfMruCwd %s", "")<CR><CR>
+noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 
 "--------------------------------------------------------------------------------
 " vim-easy-align
