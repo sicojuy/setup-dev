@@ -12,9 +12,15 @@ Ubuntu
 apt install cmake python3-dev build-essential ripgrep python-pip
 ```
 
+Install go
+
+Install rust
+
 Common
 ```
 pip install pynvim
+go install mvdan.cc/sh/v3/cmd/shfmt@latest
+cargo install stylua
 ```
 
 ## setup vim
