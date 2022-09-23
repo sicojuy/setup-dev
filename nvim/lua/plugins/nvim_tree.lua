@@ -1,11 +1,16 @@
 local nnoremap = require('../common').nnoremap
 
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
+
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   open_on_setup = true,
+  open_on_setup_file = false,
   open_on_tab = false,
   view = {
     adaptive_size = false,
+    width = "20%",
     mappings = {
       list = {
         { key = "t", action = "tabnew" },
@@ -14,45 +19,22 @@ require("nvim-tree").setup({
         { key = "u", action = "dir_up" },
         { key = "x", action = "close_node" },
         { key = "m", action = "cut" },
-        { key = "y", action = "copy" },
       },
     },
   },
   renderer = {
     group_empty = true,
+    indent_width = 2,
     icons = {
       webdev_colors = true,
       git_placement = "after",
       padding = " ",
       symlink_arrow = " => ",
       show = {
-        file = true,
-        folder = true,
+        file = false,
+        folder = false,
         folder_arrow = false,
         git = true,
-      },
-      glyphs = {
-        default = " ",
-        symlink = " ",
-        folder = {
-          arrow_closed = "▸",
-          arrow_open = "▾",
-          default = "▸",
-          open = "▾",
-          empty = "▸",
-          empty_open = "▾",
-          symlink = "▸",
-          symlink_open = "▾",
-        },
-        git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "★",
-          deleted = "",
-          ignored = "◌",
-        },
       },
     },
   },
@@ -61,4 +43,3 @@ require("nvim-tree").setup({
   },
 })
 
-nnoremap('<leader>n', '<cmd>NvimTreeToggle<cr>')

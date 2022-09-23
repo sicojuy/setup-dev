@@ -9,19 +9,20 @@ return require('packer').startup(function()
 
         -- Theme
         use 'ellisonleao/gruvbox.nvim'
+        -- use 'morhetz/gruvbox'
+        use 'sainnhe/gruvbox-material'
+        use 'sainnhe/sonokai'
+        use 'sainnhe/edge'
+        use 'sainnhe/everforest'
 
         -- Status line
         use 'vim-airline/vim-airline'
-        use 'vim-airline/vim-airline-themes'
-
-        -- Tab line
-        use 'crispgm/nvim-tabline'
-
-        -- Show how many search matchs
-        use 'google/vim-searchindex'
 
         -- Indent line
         use 'Yggdroot/indentLine'
+
+        -- Show how many search matchs
+        use 'google/vim-searchindex'
 
         -- Intelligently reopen files at your last edit position.
         use 'farmergreg/vim-lastplace'
@@ -32,39 +33,37 @@ return require('packer').startup(function()
         -- Color codes rendering
         use 'norcalli/nvim-colorizer.lua'
 
+        -- align
+        use 'junegunn/vim-easy-align'
+
+        -- hop anywhere
+        use {
+            'phaazon/hop.nvim',
+            branch = 'v2', -- optional but strongly recommended
+        }
+
+        -- thrift
+        use 'solarnz/thrift.vim'
+
+        -- vimwiki
+        use 'vimwiki/vimwiki'
+
         -- Git decorations
         use 'lewis6991/gitsigns.nvim'
 
         -- Git conflict marker
         use 'rhysd/conflict-marker.vim'
 
-        -- align
-        use 'junegunn/vim-easy-align'
-
-        -- smoothy scroll
-        -- use 'psliwka/vim-smoothie'
-
         -- Terminal
         use 'akinsho/toggleterm.nvim'
 
-        -- vimwiki
-        use 'vimwiki/vimwiki'
-
-        -- vim plugin testing
-        use 'junegunn/vader.vim'
-
-        -- thrift
-        use 'solarnz/thrift.vim'
-
-        -- hop anywhere
-        use 'phaazon/hop.nvim'
-
         -- markdown
         use {
-            "iamcco/markdown-preview.nvim",
-            run = function()
-                vim.fn["mkdp#util#install"]()
-            end,
+            'iamcco/markdown-preview.nvim',
+            requires = {
+                'iamcco/mathjax-support-for-mkdp',
+            },
+            run = function() vim.fn["mkdp#util#install"]() end,
         }
 
         -- nvim-tree
@@ -76,12 +75,20 @@ return require('packer').startup(function()
             run = ':TSUpdate',
         }
 
+        -- Symbols outline
+        use 'simrat39/symbols-outline.nvim'
+
         -- Fuzzy picker
         use {
             'nvim-telescope/telescope.nvim',
             requires = { {'nvim-lua/plenary.nvim'} }
         }
-        use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+
+        -- Improve sorting performance
+        use {
+            'nvim-telescope/telescope-fzf-native.nvim',
+            run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
+        }
 
         -- lsp client config
         use 'neovim/nvim-lspconfig'
@@ -92,8 +99,6 @@ return require('packer').startup(function()
                 'hrsh7th/cmp-buffer', -- cmp buffer
                 'hrsh7th/cmp-path', -- cmp path
                 'hrsh7th/cmp-cmdline', -- cmp cmdline
-				'hrsh7th/cmp-vsnip',
-				'hrsh7th/vim-vsnip',
             },
         }
 
@@ -102,5 +107,4 @@ return require('packer').startup(function()
 
         -- lua repl
         -- use 'rafcamlet/nvim-luapad'
-
 end)
