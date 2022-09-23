@@ -1,0 +1,25 @@
+# base
+export PATH=$HOME/local/bin:$PATH
+export WORDCHARS='*?[]~=&;!#$%^(){}<>\'
+
+# alias
+alias date='gdate'
+
+# brew
+export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
+
+# golang
+export GOROOT=/usr/local/go
+export GOPATH=~/go
+export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
+
+export GOPROXY='https://goproxy.cn|direct'
+export GOSUMDB='sum.golang.google.cn'
+#export GOFLAGS=""
+
+# rust
+. "$HOME/.cargo/env"
+
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
+

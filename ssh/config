@@ -1,0 +1,5 @@
+TCPKeepAlive yes
+ForwardAgent yes
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+LogLevel QUIET
