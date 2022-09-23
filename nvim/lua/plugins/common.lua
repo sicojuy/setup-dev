@@ -20,4 +20,3 @@ vim.cmd([[highlight NvimTreeEmptyFolderName guifg=#8ec07c]])
 
 -- indentline
 vim.g.indentLine_char = '┆'
-

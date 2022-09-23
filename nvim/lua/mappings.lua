@@ -73,3 +73,10 @@ nnoremap('<leader>fs', '<cmd>Telescope lsp_document_symbols<cr>')
 nnoremap('<leader>fh', '<cmd>Telescope search_history<cr>')
 nnoremap('<leader>fo', '<cmd>Telescope oldfiles<cr>')
 nnoremap('<leader>fr', '<cmd>Telescope resume<cr>')
+
+-- go debug
+nnoremap('<leader>gg', '<cmd>GoDebugNext<cr>')
+nnoremap('<leader>gs', '<cmd>GoDebugStep<cr>')
+nnoremap('<leader>go', '<cmd>GoDebugStepOut<cr>')
+nnoremap('<leader>gb', '<cmd>GoDebugBreakpoint<cr>')
+nnoremap('<leader>gc', '<cmd>GoDebugContinue<cr>')
