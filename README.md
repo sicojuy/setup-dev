@@ -56,3 +56,7 @@ Install neovim plugins
 nvim -c "PackerInstall"
 ```
 
+Install go binaries
+```
+nvim -c "GoInstallBinaries"
+```
