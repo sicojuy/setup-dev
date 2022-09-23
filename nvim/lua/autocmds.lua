@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd({ 'TextYankPost' }, {
     end,
 })
 
--- filetypes
+-- tabwith
 vim.api.nvim_create_autocmd({ 'FileType' }, {
     group = editor,
     pattern = {
@@ -72,18 +72,9 @@ vim.api.nvim_create_autocmd({ 'WinEnter' }, {
     end,
 })
 
--- lsp
-local lsp = vim.api.nvim_create_augroup('lsp_options', { clear = true })
-vim.api.nvim_create_autocmd({ 'CursorHold' }, {
-    group = lsp,
-    pattern = { '*' },
-    callback = function()
-        vim.diagnostic.open_float(nil, { focusable = false, scope = 'cursor' })
-    end,
-})
-
 -- formatter
-local format = vim.api.nvim_create_augroup('formatter_options', { clear = true })
+local format =
+    vim.api.nvim_create_augroup('formatter_options', { clear = true })
 vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     group = format,
     pattern = { '*.lua' },
@@ -94,14 +85,4 @@ vim.api.nvim_create_autocmd({ 'BufWritePost' }, {
     group = format,
     pattern = { '*.sh' },
     callback = formatter.shell_format,
-})
-
--- nvim-go
-local nvim_go = vim.api.nvim_create_augroup('nvim_go', { clear = true })
-vim.api.nvim_create_autocmd({ 'User' }, {
-    group = nvim_go,
-    pattern = { 'NvimGoLintPopupPost' },
-    callback = function()
-        vim.cmd('wincmd p')
-    end,
 })

@@ -25,4 +25,4 @@ try_require('plugins.cmp')
 try_require('mappings')
 
 -- autocmds
--- try_require('autocmds')
+try_require('autocmds')

@@ -2,7 +2,7 @@ vim.cmd('filetype plugin indent on')
 vim.cmd('syntax enable')
 
 -- leader key
-vim.g.mapleader = ";"
+vim.g.mapleader = ';'
 
 vim.opt.number = true -- show line number
 vim.opt.relativenumber = false -- show relative number
@@ -42,9 +42,18 @@ vim.opt.hlsearch = true -- highlight search
 vim.opt.incsearch = false -- no incremental search
 
 -- encoding
-vim.opt.encoding      = 'utf-8'
-vim.opt.fileencoding  = 'utf-8'
-vim.opt.fileencodings = { 'ucs-bom', 'utf-8', 'gbk', 'gb18030', 'big5', 'euc-jp', 'ecu-kr', 'latin1' }
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
+vim.opt.fileencodings = {
+    'ucs-bom',
+    'utf-8',
+    'gbk',
+    'gb18030',
+    'big5',
+    'euc-jp',
+    'ecu-kr',
+    'latin1',
+}
 
 -- tab
 vim.opt.autoindent = true -- auto indent for new line
