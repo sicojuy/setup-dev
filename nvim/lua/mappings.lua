@@ -43,8 +43,9 @@ nnoremap('<leader>th', '<cmd>tabmove -1<cr>')
 nnoremap('<leader>tl', '<cmd>tabmove +1<cr>')
 
 -- hop.nvim
-nnoremap('<leader>kf', '<cmd>HopChar1<cr>')
-nnoremap('<leader>kw', '<cmd>HopWord<cr>')
+nnoremap('<leader><leader>f', '<cmd>HopChar1<cr>')
+nnoremap('<leader><leader>w', '<cmd>HopWord<cr>')
+nnoremap('<leader><leader>l', '<cmd>HopLine<cr>')
 
 -- quickfix
 nnoremap('<leader>cc', '<cmd>cclose<cr>')

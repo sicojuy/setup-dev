@@ -37,6 +37,7 @@ require("nvim-tree").setup({
         git = true,
       },
     },
+    special_files = {},
   },
   filters = {
     dotfiles = true,

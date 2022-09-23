@@ -10,14 +10,14 @@ local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 -- table.insert(vimgrep_arguments, "--hidden")
 
 -- I don't want to search in the `.git` directory.
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!.git/*")
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!*_test.go")
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!*/mock/*")
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!kitex_gen/*")
+table.insert(vimgrep_arguments, "--glob=!.git/*")
+table.insert(vimgrep_arguments, "--glob=!*/mock/*")
+table.insert(vimgrep_arguments, "--glob=!kitex_gen/*")
+table.insert(vimgrep_arguments, "--glob=!output/*")
+table.insert(vimgrep_arguments, "--glob=!*.o")
+table.insert(vimgrep_arguments, "--glob=!*.so")
+table.insert(vimgrep_arguments, "--glob=!*.py[co]")
+table.insert(vimgrep_arguments, "--glob=!*_test.go")
 
 local new_maker = function(filepath, bufnr, opts)
   opts = opts or {}
@@ -45,7 +45,18 @@ require('telescope').setup({
     }),
 	pickers = {
 		find_files = {
-			find_command = { "rg", "--files", "--glob", "!.git/*", "--glob", "!*_test.go", "--glob", "!*/mock/*", "--glob", "!kitex_gen/*" },
+			find_command = {
+                "rg",
+                "--files",
+                "--glob=!.git/*",
+                "--glob=!*/mock/*",
+                "--glob=!kitex_gen/*",
+                "--glob=!output/*",
+                "--glob=!*.o",
+                "--glob=!*.so",
+                "--glob=!*.py[co]",
+                "--glob=!*_test.go",
+            },
 		},
 	},
     extensions = {
