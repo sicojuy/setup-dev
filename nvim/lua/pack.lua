@@ -17,6 +17,7 @@ return require('packer').startup(function()
 
         -- Status line
         use 'vim-airline/vim-airline'
+        use 'vim-airline/vim-airline-themes'
 
         -- Indent line
         use 'Yggdroot/indentLine'
