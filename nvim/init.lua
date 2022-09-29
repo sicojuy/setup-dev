@@ -1,28 +1,28 @@
-local try_require = require('common').try_require
+local try_require = require("common").try_require
 
--- options
-try_require('options')
+-- option
+try_require("option")
 
--- packages
-try_require('pack')
-require('impatient').enable_profile()
+-- plugin
+try_require("plugin")
+require("impatient").enable_profile()
 
 -- plugin config
-try_require('plugins.common')
-try_require('plugins.tabline')
-try_require('plugins.gitsigns')
-try_require('plugins.conflict_marker')
-try_require('plugins.toggleterm')
-try_require('plugins.nvim_tree')
-try_require('plugins.treesitter')
-try_require('plugins.telescope')
-try_require('plugins.vim_go')
-try_require('plugins.lspconfig')
-try_require('plugins.cmp')
--- try_require('plugins.rust')
+try_require("config.mix")
+try_require("config.tabline")
+try_require("config.gitsigns")
+try_require("config.conflict_marker")
+try_require("config.toggleterm")
+try_require("config.nvim_tree")
+try_require("config.treesitter")
+try_require("config.telescope")
+try_require("config.vim_go")
+try_require("config.lspconfig")
+try_require("config.cmp")
+-- try_require('config.rust')
 
--- mappings
-try_require('mappings')
+-- mapping
+try_require("mapping")
 
--- autocmds
-try_require('autocmds')
+-- command
+try_require("command")

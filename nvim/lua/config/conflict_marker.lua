@@ -1,9 +1,9 @@
 -- disable the default highlight group
-vim.g.conflict_marker_highlight_group = ''
+vim.g.conflict_marker_highlight_group = ""
 
 -- Include text after begin and end markers
-vim.g.conflict_marker_begin = '^<<<<<<< .*$'
-vim.g.conflict_marker_end = '^>>>>>>> .*$'
+vim.g.conflict_marker_begin = "^<<<<<<< .*$"
+vim.g.conflict_marker_end = "^>>>>>>> .*$"
 
 vim.cmd([[
     highlight ConflictMarkerBegin guibg=#2f7366
