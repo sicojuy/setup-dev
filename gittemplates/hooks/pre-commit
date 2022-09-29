@@ -1,0 +1,10 @@
+#!/bin/bash
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM)
+
+for file in $FILES; do
+	if grep -q "shit" $file; then
+		echo "Not allow to commit, ${file} contain shit!!!"
+		exit 1
+	fi
+done

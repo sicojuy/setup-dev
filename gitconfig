@@ -1,5 +1,8 @@
 [user]
     name = sicojuy
     email = ziqianliao@gmail.com
+[init]
+    defaultBranch = main
+    templatedir = ~/.gittemplates
 [pull]
     rebase = true
