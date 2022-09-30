@@ -93,9 +93,6 @@ return require("packer").startup(function()
 		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
 	})
 
-	-- go
-	use("fatih/vim-go")
-
 	-- lsp client config
 	use("neovim/nvim-lspconfig")
 	use({
@@ -108,9 +105,13 @@ return require("packer").startup(function()
 		},
 	})
 
-	-- rust lang support
-	-- use 'rust-lang/rust.vim'
+	-- vsnip
+	use("hrsh7th/cmp-vsnip")
+	use("hrsh7th/vim-vsnip")
 
-	-- lua repl
-	-- use 'rafcamlet/nvim-luapad'
+	-- go
+	use("fatih/vim-go")
+
+	-- rust
+	use("rust-lang/rust.vim")
 end)

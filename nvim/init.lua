@@ -17,9 +17,8 @@ try_require("config.nvim_tree")
 try_require("config.treesitter")
 try_require("config.telescope")
 try_require("config.vim_go")
-try_require("config.lspconfig")
 try_require("config.cmp")
--- try_require('config.rust')
+try_require("config.rust")
 
 -- mapping
 try_require("mapping")

@@ -2,30 +2,21 @@
 
 ## dependencies
 
-MacOS
-```
-brew install cmake python ripgrep python-pip
-```
-
-Ubuntu
-```
-apt install cmake python3-dev build-essential ripgrep python-pip
-```
-
-Install go
-
-Install rust
-
-Common
-```
-pip install pynvim
-go install mvdan.cc/sh/v3/cmd/shfmt@latest
-cargo install stylua
-```
+* go
+* rust
+* cargo
+* neovim
+* vim
+* cmake
+* ripgrep
+* python-pip
+* rust-analyzer(nvim)
+* clangd(nvim)
+* pynvim(nvim)
+* shfmt(nvim)
+* stylua(nvim) 
 
 ## setup vim
-
-Install vim
 
 Copy vim config
 ```
@@ -50,12 +41,12 @@ python3 install.py --clangd-completer --go-completer --rust-completer
 
 ## setup neovim
 
-Install neovim
-
 Copy neovim config
 ```
 cp -r nvim ~/.config/nvim
 ```
+
+Install packer
 
 Install neovim plugins
 ```
@@ -65,4 +56,4 @@ nvim -c "PackerInstall"
 Install go binaries
 ```
 nvim -c "GoInstallBinaries"
-```
+
