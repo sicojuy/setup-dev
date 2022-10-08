@@ -9,6 +9,7 @@
 * vim
 * cmake
 * ripgrep
+* fd
 * python-pip
 * rust-analyzer(nvim)
 * clangd(nvim)
