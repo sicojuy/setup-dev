@@ -20,6 +20,7 @@ require("nvim-tree").setup({
 				{ key = "x", action = "close_node" },
 				{ key = "m", action = "cut" },
 				{ key = "<C-i>", action = "toggle_file_info" },
+				{ key = "<C-]>", action = "cd" },
 			},
 		},
 	},

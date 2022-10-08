@@ -4,7 +4,7 @@
 
 * go
 * rust
-* cargo
+* lua
 * neovim
 * vim
 * cmake
@@ -47,6 +47,9 @@ cp -r nvim ~/.config/nvim
 ```
 
 Install packer
+```
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+```
 
 Install neovim plugins
 ```
