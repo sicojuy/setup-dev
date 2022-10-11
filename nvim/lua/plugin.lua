@@ -9,11 +9,6 @@ return require("packer").startup(function()
 
 	-- Theme
 	use("ellisonleao/gruvbox.nvim")
-	-- use 'morhetz/gruvbox'
-	use("sainnhe/gruvbox-material")
-	use("sainnhe/sonokai")
-	use("sainnhe/edge")
-	use("sainnhe/everforest")
 
 	-- Status line
 	use("vim-airline/vim-airline")
@@ -108,6 +103,9 @@ return require("packer").startup(function()
 	-- vsnip
 	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/vim-vsnip")
+
+	-- show function signature
+	use("ray-x/lsp_signature.nvim")
 
 	-- go
 	use("fatih/vim-go")

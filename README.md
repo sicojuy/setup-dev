@@ -4,7 +4,6 @@
 
 * go
 * rust
-* lua
 * neovim
 * vim
 * cmake
