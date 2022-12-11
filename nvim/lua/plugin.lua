@@ -54,6 +54,9 @@ return require("packer").startup(function()
     -- Git conflict marker
     use("rhysd/conflict-marker.vim")
 
+    -- Git premier
+    use("tpope/vim-fugitive")
+
     -- Terminal
     use("akinsho/toggleterm.nvim")
 
