@@ -14,7 +14,7 @@ vim.opt.undofile = true -- use undo file
 vim.opt.updatetime = 300 -- time (in ms) to write to swap file
 vim.opt.whichwrap = "b,s,<,>,[,]" -- cursor is able to move from end of line to next line
 vim.opt.backspace = { "indent", "eol", "start" } -- backspace behaviors
-vim.opt.list = true -- show tabs
+vim.opt.list = false -- show tabs
 vim.opt.listchars = { tab = "┆ " } -- show tabs with listchars
 vim.opt.cursorline = true -- show cursor line
 vim.opt.ruler = true -- show ruler line
@@ -27,7 +27,6 @@ vim.opt.wildmode = { "longest", "full" }
 vim.opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor.
 vim.opt.splitright = true -- split to right
 vim.opt.splitbelow = false -- split to below
-vim.opt.showtabline = 2 -- always show tab line
 vim.opt.inccommand = "nosplit" -- live substitute preview
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned.

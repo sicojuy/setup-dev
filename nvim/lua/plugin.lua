@@ -1,115 +1,111 @@
 vim.cmd("packadd packer.nvim")
 
 return require("packer").startup(function()
-	-- Packer can manage itself
-	use("wbthomason/packer.nvim")
+    -- Packer can manage itself
+    use("wbthomason/packer.nvim")
 
-	-- Speed up loading Lua modules in Neovim to improve startup time.
-	use("lewis6991/impatient.nvim")
+    -- Speed up loading Lua modules in Neovim to improve startup time.
+    use("lewis6991/impatient.nvim")
 
-	-- Theme
-	use("ellisonleao/gruvbox.nvim")
+    -- Theme
+    -- use("ellisonleao/gruvbox.nvim")
+    use("morhetz/gruvbox")
+    -- use("projekt0n/github-nvim-theme")
 
-	-- Status line
-	use("vim-airline/vim-airline")
-	use("vim-airline/vim-airline-themes")
+    -- Status line
+    use("vim-airline/vim-airline")
+    use("vim-airline/vim-airline-themes")
 
-	-- Indent line
-	use("Yggdroot/indentLine")
+    -- Show how many search matchs
+    use("google/vim-searchindex")
 
-	-- Show how many search matchs
-	use("google/vim-searchindex")
+    -- Intelligently reopen files at your last edit position.
+    use("farmergreg/vim-lastplace")
 
-	-- Intelligently reopen files at your last edit position.
-	use("farmergreg/vim-lastplace")
+    -- Color codes rendering
+    use("norcalli/nvim-colorizer.lua")
 
-	-- Vim notify toast
-	use("rcarriga/nvim-notify")
+    -- align
+    use("junegunn/vim-easy-align")
 
-	-- Color codes rendering
-	use("norcalli/nvim-colorizer.lua")
+    -- hop anywhere
+    use({
+        "phaazon/hop.nvim",
+        branch = "v2", -- optional but strongly recommended
+    })
 
-	-- align
-	use("junegunn/vim-easy-align")
+    -- thrift
+    use("solarnz/thrift.vim")
 
-	-- hop anywhere
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
-	})
+    -- vimwiki
+    use("vimwiki/vimwiki")
 
-	-- thrift
-	use("solarnz/thrift.vim")
+    -- Git decorations
+    use("lewis6991/gitsigns.nvim")
 
-	-- vimwiki
-	use("vimwiki/vimwiki")
+    -- Git conflict marker
+    use("rhysd/conflict-marker.vim")
 
-	-- Git decorations
-	use("lewis6991/gitsigns.nvim")
+    -- Terminal
+    use("akinsho/toggleterm.nvim")
 
-	-- Git conflict marker
-	use("rhysd/conflict-marker.vim")
+    -- markdown
+    use({
+        "iamcco/markdown-preview.nvim",
+        requires = {
+            "iamcco/mathjax-support-for-mkdp",
+        },
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    })
 
-	-- Terminal
-	use("akinsho/toggleterm.nvim")
+    -- nvim-tree
+    use("kyazdani42/nvim-tree.lua")
 
-	-- markdown
-	use({
-		"iamcco/markdown-preview.nvim",
-		requires = {
-			"iamcco/mathjax-support-for-mkdp",
-		},
-		run = function()
-			vim.fn["mkdp#util#install"]()
-		end,
-	})
+    -- treesitter
+    use({
+        "nvim-treesitter/nvim-treesitter",
+        run = ":TSUpdate",
+    })
 
-	-- nvim-tree
-	use("kyazdani42/nvim-tree.lua")
+    -- Symbols outline
+    use("simrat39/symbols-outline.nvim")
 
-	-- treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+    -- Fuzzy picker
+    use({
+        "nvim-telescope/telescope.nvim",
+        requires = { { "nvim-lua/plenary.nvim" } },
+    })
 
-	-- Symbols outline
-	use("simrat39/symbols-outline.nvim")
+    -- Improve sorting performance
+    use({
+        "nvim-telescope/telescope-fzf-native.nvim",
+        run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    })
 
-	-- Fuzzy picker
-	use({
-		"nvim-telescope/telescope.nvim",
-		requires = { { "nvim-lua/plenary.nvim" } },
-	})
+    -- lsp client config
+    use("neovim/nvim-lspconfig")
+    use({
+        "hrsh7th/nvim-cmp", -- completion
+        requires = {
+            "hrsh7th/cmp-nvim-lsp", -- cmp lsp
+            "hrsh7th/cmp-buffer", -- cmp buffer
+            "hrsh7th/cmp-path", -- cmp path
+            "hrsh7th/cmp-cmdline", -- cmp cmdline
+        },
+    })
 
-	-- Improve sorting performance
-	use({
-		"nvim-telescope/telescope-fzf-native.nvim",
-		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
-	})
+    -- vsnip
+    use("hrsh7th/cmp-vsnip")
+    use("hrsh7th/vim-vsnip")
 
-	-- lsp client config
-	use("neovim/nvim-lspconfig")
-	use({
-		"hrsh7th/nvim-cmp", -- completion
-		requires = {
-			"hrsh7th/cmp-nvim-lsp", -- cmp lsp
-			"hrsh7th/cmp-buffer", -- cmp buffer
-			"hrsh7th/cmp-path", -- cmp path
-			"hrsh7th/cmp-cmdline", -- cmp cmdline
-		},
-	})
+    -- show function signature
+    use("ray-x/lsp_signature.nvim")
 
-	-- vsnip
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
+    -- go
+    use("fatih/vim-go")
 
-	-- show function signature
-	use("ray-x/lsp_signature.nvim")
-
-	-- go
-	use("fatih/vim-go")
-
-	-- rust
-	use("rust-lang/rust.vim")
+    -- rust
+    use("rust-lang/rust.vim")
 end)

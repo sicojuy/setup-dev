@@ -17,6 +17,7 @@ inoremap("<c-b>", "<Left>")
 cnoremap("<c-a>", "<Home>")
 cnoremap("<c-e>", "<End>")
 cnoremap("<c-f>", "<Right>")
+cnoremap("<c-b>", "<Left>")
 cnoremap("<Esc>f", "<S-Right>")
 cnoremap("<Esc>b", "<S-Left>")
 
@@ -45,7 +46,7 @@ nnoremap("<leader>tl", "<cmd>tabmove +1<cr>")
 -- hop.nvim
 nnoremap("<leader><leader>f", "<cmd>HopChar1<cr>")
 nnoremap("<leader><leader>w", "<cmd>HopWord<cr>")
-nnoremap("<leader><leader>l", "<cmd>HopLine<cr>")
+nnoremap("<leader><leader>l", "<cmd>HopWordCurrentLine<cr>")
 
 -- quickfix
 nnoremap("<leader>cc", "<cmd>cclose<cr>")
@@ -68,8 +69,9 @@ nnoremap("<leader>s", "<cmd>SymbolsOutline<cr>")
 -- telescope
 nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
 nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
+nnoremap("<leader>fs", "<cmd>Telescope grep_string<cr>")
 nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>")
+nnoremap("<leader>fS", "<cmd>Telescope lsp_document_symbols<cr>")
 nnoremap("<leader>fh", "<cmd>Telescope search_history<cr>")
 nnoremap("<leader>fo", "<cmd>Telescope oldfiles<cr>")
 nnoremap("<leader>fr", "<cmd>Telescope resume<cr>")
