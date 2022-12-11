@@ -8,7 +8,6 @@ try_require("plugin")
 require("impatient").enable_profile()
 
 -- plugin config
-try_require("config.mix")
 try_require("config.theme")
 try_require("config.tabline")
 try_require("config.gitsigns")

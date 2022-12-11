@@ -23,7 +23,12 @@ return require("packer").startup(function()
     use("farmergreg/vim-lastplace")
 
     -- Color codes rendering
-    use("norcalli/nvim-colorizer.lua")
+    use({
+        "norcalli/nvim-colorizer.lua",
+        config = function()
+            require("colorizer").setup()
+        end
+    })
 
     -- align
     use("junegunn/vim-easy-align")
@@ -32,6 +37,9 @@ return require("packer").startup(function()
     use({
         "phaazon/hop.nvim",
         branch = "v2", -- optional but strongly recommended
+        config = function()
+            require("hop").setup()
+        end
     })
 
     -- thrift
@@ -63,6 +71,14 @@ return require("packer").startup(function()
     -- nvim-tree
     use("kyazdani42/nvim-tree.lua")
 
+    -- window size
+    use({ "anuvyklack/windows.nvim",
+        requires = "anuvyklack/middleclass",
+        config = function()
+            require('windows').setup()
+        end
+    })
+
     -- treesitter
     use({
         "nvim-treesitter/nvim-treesitter",
@@ -70,7 +86,12 @@ return require("packer").startup(function()
     })
 
     -- Symbols outline
-    use("simrat39/symbols-outline.nvim")
+    use({
+        "simrat39/symbols-outline.nvim",
+        config = function()
+            require("symbols-outline").setup()
+        end
+    })
 
     -- Fuzzy picker
     use({

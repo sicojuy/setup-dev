@@ -25,8 +25,8 @@ vim.opt.cmdheight = 2 -- height of :command line
 vim.opt.wildmenu = true -- wildmenu, auto complete for commands
 vim.opt.wildmode = { "longest", "full" }
 vim.opt.scrolloff = 10 -- minimal number of screen lines to keep above and below the cursor.
-vim.opt.splitright = true -- split to right
-vim.opt.splitbelow = false -- split to below
+vim.opt.splitright = false -- split to right
+vim.opt.splitbelow = true -- split to below
 vim.opt.inccommand = "nosplit" -- live substitute preview
 vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned.
@@ -69,4 +69,12 @@ if vim.fn.has("termguicolors") then
 	vim.cmd('let &t_8f = "\\<Esc>[38;2;%lu;%lu;%lum"')
 	vim.cmd('let &t_8b = "\\<Esc>[48;2;%lu;%lu;%lum"')
 	vim.opt.termguicolors = true
+end
+
+-- python provider
+vim.g.python3_host_prog = "/usr/bin/python3"
+
+-- Chrome provider
+if vim.fn.has("macos") then
+    vim.g.mkdp_path_to_chrome = "open -a Google\\ Chrome"
 end
