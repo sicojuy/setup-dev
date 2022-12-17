@@ -33,6 +33,7 @@ vim.opt.hidden = true -- when off a buffer is unloaded when it is abandoned.
 vim.opt.shortmess:append("c")
 vim.opt.formatoptions:append("m")
 vim.opt.formatoptions:append("B")
+vim.opt.mouse = "" -- disable mouse
 
 -- search
 vim.opt.ignorecase = true -- search ignore case
@@ -76,5 +77,5 @@ vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- Chrome provider
 if vim.fn.has("macos") then
-    vim.g.mkdp_path_to_chrome = "open -a Google\\ Chrome"
+	vim.g.mkdp_path_to_chrome = "open -a Google\\ Chrome"
 end
