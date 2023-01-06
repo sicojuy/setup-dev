@@ -27,7 +27,7 @@ nnoremap("<c-j>", "<c-w>j")
 nnoremap("<c-k>", "<c-w>k")
 nnoremap("<c-l>", "<c-w>l")
 
-nnoremap("<C-a>", "<cmd>WindowsMaximize<cr>")
+nnoremap("<c-a>", "<cmd>WindowsMaximize<cr>")
 
 -- tab
 nnoremap("<Tab>", "gt")

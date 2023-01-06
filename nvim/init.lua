@@ -19,6 +19,22 @@ try_require("config.telescope")
 try_require("config.vim_go")
 try_require("config.cmp")
 try_require("config.rust")
+require("hop").setup()
+require("colorizer").setup()
+require("symbols-outline").setup()
+require("fidget").setup()
+require("windows").setup({
+	autowidth = {
+		enable = false,
+	},
+	ignore = {
+		buftype = { "quickfix" },
+		filetype = { "NvimTree", "neo-tree", "undotree", "gundo" },
+	},
+	animation = {
+		enable = false,
+	},
+})
 
 -- mapping
 try_require("mapping")

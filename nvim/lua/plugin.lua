@@ -23,12 +23,7 @@ return require("packer").startup(function()
 	use("farmergreg/vim-lastplace")
 
 	-- Color codes rendering
-	use({
-		"norcalli/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	})
+	use("norcalli/nvim-colorizer.lua")
 
 	-- align
 	use("junegunn/vim-easy-align")
@@ -37,9 +32,6 @@ return require("packer").startup(function()
 	use({
 		"phaazon/hop.nvim",
 		branch = "v2", -- optional but strongly recommended
-		config = function()
-			require("hop").setup()
-		end,
 	})
 
 	-- thrift
@@ -78,20 +70,6 @@ return require("packer").startup(function()
 	use({
 		"anuvyklack/windows.nvim",
 		requires = "anuvyklack/middleclass",
-		config = function()
-			require("windows").setup({
-				autowidth = {
-					enable = false,
-				},
-				ignore = {
-					buftype = { "quickfix" },
-					filetype = { "NvimTree", "neo-tree", "undotree", "gundo" },
-				},
-				animation = {
-					enable = false,
-				},
-			})
-		end,
 	})
 
 	-- treesitter
@@ -101,12 +79,7 @@ return require("packer").startup(function()
 	})
 
 	-- Symbols outline
-	use({
-		"simrat39/symbols-outline.nvim",
-		config = function()
-			require("symbols-outline").setup()
-		end,
-	})
+	use("simrat39/symbols-outline.nvim")
 
 	-- Fuzzy picker
 	use({
@@ -135,6 +108,9 @@ return require("packer").startup(function()
 	-- vsnip
 	use("hrsh7th/cmp-vsnip")
 	use("hrsh7th/vim-vsnip")
+
+	-- nvim-lsp progress
+	use("j-hui/fidget.nvim")
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
