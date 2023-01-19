@@ -3,23 +3,6 @@ local actions = require("telescope.actions")
 local telescopeConfig = require("telescope.config")
 local previewers = require("telescope.previewers")
 
--- Clone the default Telescope configuration
-local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
-
--- I want to search in hidden/dot files.
--- table.insert(vimgrep_arguments, "--hidden")
-
--- I don't want to search in the `.git` directory.
-table.insert(vimgrep_arguments, "--glob=!.git/*")
-table.insert(vimgrep_arguments, "--glob=!mock/*")
-table.insert(vimgrep_arguments, "--glob=!mocks/*")
-table.insert(vimgrep_arguments, "--glob=!kitex_gen/*")
-table.insert(vimgrep_arguments, "--glob=!output/*")
-table.insert(vimgrep_arguments, "--glob=!*.o")
-table.insert(vimgrep_arguments, "--glob=!*.so")
-table.insert(vimgrep_arguments, "--glob=!*.py[co]")
-table.insert(vimgrep_arguments, "--glob=!*_test.go")
-
 -- ignore large file
 local new_maker = function(filepath, bufnr, opts)
 	opts = opts or {}
@@ -39,7 +22,16 @@ end
 
 require("telescope").setup({
 	defaults = require("telescope.themes").get_ivy({
-		vimgrep_arguments = vimgrep_arguments,
+		file_ignore_patterns = {
+			"^.git/",
+			"^kitex_gen/",
+			"^output/",
+			"mock/",
+			"mocks/",
+			"%_test.go",
+			"%.o",
+			"%.so",
+		},
 		buffer_previewer_maker = new_maker,
 		mappings = {
 			i = {
@@ -47,23 +39,7 @@ require("telescope").setup({
 			},
 		},
 	}),
-	pickers = {
-		find_files = {
-			find_command = {
-				"rg",
-				"--files",
-				"--glob=!.git/*",
-				"--glob=!mock/*",
-				"--glob=!mocks/*",
-				"--glob=!kitex_gen/*",
-				"--glob=!output/*",
-				"--glob=!*.o",
-				"--glob=!*.so",
-				"--glob=!*.py[co]",
-				"--glob=!*_test.go",
-			},
-		},
-	},
+	pickers = {},
 	extensions = {},
 })
 

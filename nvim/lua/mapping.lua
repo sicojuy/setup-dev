@@ -69,14 +69,14 @@ nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
 nnoremap("<leader>s", "<cmd>SymbolsOutline<cr>")
 
 -- telescope
-nnoremap("<leader>ff", "<cmd>Telescope find_files<cr>")
-nnoremap("<leader>fg", "<cmd>Telescope live_grep<cr>")
-nnoremap("<leader>fs", "<cmd>Telescope grep_string<cr>")
-nnoremap("<leader>fb", "<cmd>Telescope buffers<cr>")
-nnoremap("<leader>fS", "<cmd>Telescope lsp_document_symbols<cr>")
-nnoremap("<leader>fh", "<cmd>Telescope search_history<cr>")
-nnoremap("<leader>fo", "<cmd>Telescope oldfiles<cr>")
-nnoremap("<leader>fr", "<cmd>Telescope resume<cr>")
+local builtin = require("telescope.builtin")
+nnoremap("<leader>ff", builtin.find_files)
+nnoremap("<leader>fg", builtin.live_grep)
+nnoremap("<leader>fs", builtin.grep_string)
+nnoremap("<leader>fb", builtin.buffers)
+nnoremap("<leader>fh", builtin.search_history)
+nnoremap("<leader>fo", builtin.oldfiles)
+nnoremap("<leader>fr", builtin.resume)
 
 -- go debug
 nnoremap("<leader>gg", "<cmd>GoDebugNext<cr>")
