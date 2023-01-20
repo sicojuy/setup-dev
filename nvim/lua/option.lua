@@ -62,6 +62,7 @@ vim.opt.cindent = true -- enables automatic C program indenting
 vim.opt.tabstop = 4 -- tab stop
 vim.opt.shiftwidth = 4 -- auto indent shift width
 
+-- display
 if not vim.fn.has("gui_running") then
 	vim.opt.t_Co = 256
 end

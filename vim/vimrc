@@ -13,9 +13,6 @@ Plug 'vim-airline/vim-airline'
 " 显示搜索匹配数目
 Plug 'google/vim-searchindex'
 
-" 缩进线
-Plug 'Yggdroot/indentLine'
-
 " 打开文件跳到上次编辑的位置
 Plug 'farmergreg/vim-lastplace'
 
@@ -48,19 +45,9 @@ Plug 'rhysd/conflict-marker.vim'
 
 " go
 Plug 'fatih/vim-go'
-Plug 'sebdah/vim-delve'
 
 " thrift
 Plug 'solarnz/thrift.vim'
-
-" js
-Plug 'pangloss/vim-javascript'
-
-" python
-Plug 'vim-python/python-syntax'
-
-" lua
-Plug 'tbastos/vim-lua'
 
 " rust
 Plug 'rust-lang/rust.vim'
@@ -86,33 +73,36 @@ let mapleader=";"
 
 set nocompatible                      " 关闭兼容模式
 set number                            " 设置行号
+set history=1000                      " 命令历史数
+set nobackup                          " 不要备份文件
+set noswapfile                        " 不要swap文件
 set cursorline                        " 突出显示当前行
 set showmatch                         " 显示括号匹配
 set noeb                              " 不要提示音
-set incsearch                         " 实时搜索
-set ignorecase                        " 搜索忽略大小写
-set smartcase                         " 如果有一个大写字母，则大小写敏感查找
-set hlsearch                          " 高亮搜索关键词
-set nobackup                          " 不要备份文件
-set noswapfile                        " 不要swap文件
 set confirm                           " 退出确认
 set wildmenu                          " 命令行补全提示
-set splitright                        " 水平分隔窗口时在右边
 set splitbelow                        " 垂直分隔窗口时在下面
 set lazyredraw                        " 延迟绘制（提升性能）
 set display=lastline                  " 显示最后一行
 set scrolloff=10                      " 保持在光标上下的最少行数
-set history=1000                      " 命令历史数
 set completeopt=menu,menuone,noselect " 补全配置
 set backspace=indent,eol,start        " 设置Backspace键模式
 set formatoptions+=m                  " 如遇Unicode值大于255的文本，不必等到空格再折行
 set formatoptions+=B                  " 合并两行中文时，不在中间加空格
 set ffs=unix,dos,mac                  " 文件换行符，默认使用 unix 换行符
 set showtabline=2                     " 总是显示tabline
-set list                              " 显示tab符号
-set listchars=tab:¦\                  " 显示tab符号
 
-" tab缩进
+" search
+set ignorecase                        " 搜索忽略大小写
+set smartcase                         " 如果有一个大写字母，则大小写敏感查找
+set hlsearch                          " 高亮搜索关键词
+
+" encoding
+set encoding=utf-8
+set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,ecu-kr,latin1
+
+" tab
 set autoindent   " 自动缩进，继承前一行的缩进方式
 set cindent      " 打开C/C++缩进优化
 set expandtab    " tab替换成空格
@@ -121,19 +111,10 @@ set shiftwidth=4 " 设置自动缩进长度为4空格
 autocmd filetype go setlocal noexpandtab
 autocmd filetype javascript,html,vue setlocal tabstop=2 shiftwidth=2
 
-" vim系统菜单及语言设置
-set langmenu=zh_CN.UTF-8
-set helplang=cn
-set viminfo+=!
-
 " 单词分隔符
 set iskeyword+=_,$,@,%,#,-
 
-" 编码
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,ecu-kr,latin1
-
+" display
 if !has('gui_running')
     set t_Co=256
 endif
@@ -144,6 +125,9 @@ if has('termguicolors')
     set termguicolors   " 开启24bit的颜色
 endif
 
+colorscheme gruvbox
+set background=dark " 主题背景 dark or light
+
 " 保存时自动清除尾部空白符
 autocmd BufWritePre * :%s/\s\+$//e
 
@@ -151,14 +135,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 " 插件配置
 "================================================================================
 
-"--------------------------------------------------------------------------------
-" gruvbox
-"--------------------------------------------------------------------------------
-
-colorscheme gruvbox
-set background=dark " 主题背景 dark or light
-
-"--------------------------------------------------------------------------------
 " Git conflict marker
 "--------------------------------------------------------------------------------
 
@@ -184,8 +160,6 @@ let NERDTreeShowLineNumbers=0              " 显示行号
 let NERDTreeWinSize=30                     " 设置宽度
 let NERDTreeIgnore=['\.pyc','\~$','\.swp'] " 忽略一下文件的显示
 let NERDTreeMapHelp='H'                    " 打开帮助
-
-nnoremap <leader>n :NERDTreeMirror<CR>:NERDTreeToggle<CR>
 
 " Close the tab if NERDTree is the only window remaining in it.
 autocmd BufEnter * if winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
@@ -219,7 +193,7 @@ let g:Lf_UseVersionControlTool = 0
 
 " 模糊匹配忽略扩展名
 let g:Lf_WildIgnore = {
-    \ 'dir': ['.git', 'mock', 'kitex_gen', 'output'],
+    \ 'dir': ['.git', 'mock', 'mocks', 'kitex_gen', 'output'],
     \ 'file': ['*.o', '*.so', '*.py[co]', '*_test.go']
     \ }
 
@@ -227,6 +201,7 @@ let g:Lf_WildIgnore = {
 let g:Lf_RgConfig = [
     \ "--glob=!.git/*",
     \ "--glob=!*/mock/*",
+    \ "--glob=!*/mocks/*",
     \ "--glob=!kitex_gen/*",
     \ "--glob=!output/*",
     \ "--glob=!*.o",
@@ -240,19 +215,7 @@ let g:Lf_PreviewResult = {'Function':0, 'BufTag':0}
 
 " 快捷键
 let g:Lf_ShortcutF = "<c-p>"
-noremap <leader>f :<C-U><C-R>=printf("LeaderfSelf %s", "")<CR><CR>
-noremap <leader>ff :<C-U><C-R>=printf("LeaderfFile %s", "")<CR><CR>
-noremap <leader>fg :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
-noremap <leader>ft :<C-U><C-R>=printf("LeaderfBufTag %s", "")<CR><CR>
-noremap <leader>fo :<C-U><C-R>=printf("LeaderfMruCwd %s", "")<CR><CR>
-noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
 
-"--------------------------------------------------------------------------------
-" vim-easy-align
-"--------------------------------------------------------------------------------
-
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 "--------------------------------------------------------------------------------
 " YouCompleteMe
@@ -340,28 +303,6 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 
 "--------------------------------------------------------------------------------
-" markdown
-"--------------------------------------------------------------------------------
-
-map <silent> <Leader>m <Plug>MarkdownPreview
-
-"--------------------------------------------------------------------------------
-" python
-"--------------------------------------------------------------------------------
-
-let g:python_highlight_all = 1
-
-"--------------------------------------------------------------------------------
-" json
-"--------------------------------------------------------------------------------
-
-" format json
-command -range=% JSONFormat :<line1>,<line2> ! python -m json.tool
-
-" compact json
-command -range=% JSONCompact :<line1>,<line2> s/[ \s\n\r]//g | noh
-
-"--------------------------------------------------------------------------------
 " 标签标题
 "--------------------------------------------------------------------------------
 
@@ -394,27 +335,16 @@ set tabline=%!Tabline()
 " 按键映射
 "================================================================================
 
-"--------------------------------------------------------------------------------
 " 系统复制粘贴
-"--------------------------------------------------------------------------------
-
 vmap <Leader>y "+y
 nmap <Leader>y "+yy
 nmap <Leader>p "+p
 
-"--------------------------------------------------------------------------------
-" 插入模式快捷键
-"--------------------------------------------------------------------------------
-
+" 快捷键
 inoremap <C-a> <Home>
 inoremap <C-f> <Right>
 inoremap <C-b> <Left>
 inoremap <C-e> <End>
-
-"--------------------------------------------------------------------------------
-" 命令模式快捷键
-"--------------------------------------------------------------------------------
-
 cnoremap <C-a> <Home>
 cnoremap <C-f> <Right>
 cnoremap <C-b> <Left>
@@ -422,24 +352,14 @@ cnoremap <C-e> <End>
 cnoremap <Esc>b <S-Left>
 cnoremap <Esc>f <S-Right>
 
-"--------------------------------------------------------------------------------
 " 窗口切换
-"--------------------------------------------------------------------------------
-
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap <C-c> <C-w>c
-noremap <leader>H <C-w>H
-noremap <leader>J <C-w>J
-noremap <leader>K <C-w>K
-noremap <leader>L <C-w>L
 
-"--------------------------------------------------------------------------------
-" 标签快捷键
-"--------------------------------------------------------------------------------
-
+" tab
 function! Tab_MoveLeft()
     let l:tabnr = tabpagenr() - 2
     if l:tabnr >= 0
@@ -464,10 +384,31 @@ noremap <silent> <leader>7 7gt
 noremap <silent> <leader>8 8gt
 noremap <silent> <leader>9 9gt
 noremap <silent> <leader>0 :tablast<cr>
-noremap <silent> <leader>tn :tabnext<cr>
-noremap <silent> <leader>tp :tabprev<cr>
 noremap <silent> <leader>tt :tabnew<cr>
-noremap <silent> <leader>tq :tabclose<cr>
-noremap <silent> <leader>to :tabonly<cr>
 noremap <silent> <leader>th :call Tab_MoveLeft()<cr>
 noremap <silent> <leader>tl :call Tab_MoveRight()<cr>
+
+" align
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+" markdown
+map <silent> <Leader>m <Plug>MarkdownPreview
+
+" nerdtree
+nnoremap <leader>n :NERDTreeMirror<CR>:NERDTreeToggle<CR>
+
+" leaderf
+noremap <leader>f :<C-U><C-R>=printf("LeaderfSelf %s", "")<CR><CR>
+noremap <leader>ff :<C-U><C-R>=printf("LeaderfFile %s", "")<CR><CR>
+noremap <leader>fg :<C-U><C-R>=printf("Leaderf! rg -F %s", expand("<cword>"))<CR>
+noremap <leader>ft :<C-U><C-R>=printf("LeaderfBufTag %s", "")<CR><CR>
+noremap <leader>fo :<C-U><C-R>=printf("LeaderfMruCwd %s", "")<CR><CR>
+noremap <leader>fr :<C-U>Leaderf! rg --recall<CR>
+
+" go debug
+nnoremap <leader>gg :GoDebugNext<cr>
+nnoremap <leader>gs :GoDebugStep<cr>
+nnoremap <leader>go :GoDebugStepOut<cr>
+nnoremap <leader>gb :GoDebugBreakpoint<cr>
+nnoremap <leader>gc :GoDebugContinue<cr>
