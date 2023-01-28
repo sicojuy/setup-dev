@@ -1,8 +1,6 @@
 vim.g.go_def_mapping_enabled = 0
 vim.g.go_gopls_enabled = 0
 vim.g.go_fmt_autosave = 1
-vim.g.go_fmt_command = "goimports"
-vim.g.go_fmt_options = "-format-only"
 vim.g.go_imports_autosave = 0
 vim.g.go_metalinter_autosave = 0
 vim.g.go_metalinter_command = "golangci-lint"
