@@ -25,6 +25,8 @@ require("telescope").setup({
 		file_ignore_patterns = {
 			"^.git/",
 			"^kitex_gen/",
+			"^thrift_gen/",
+			"^clients/",
 			"^output/",
 			"mock/",
 			"mocks/",
