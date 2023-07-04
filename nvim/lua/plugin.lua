@@ -110,7 +110,10 @@ return require("packer").startup(function()
 	use("hrsh7th/vim-vsnip")
 
 	-- nvim-lsp progress
-	use("j-hui/fidget.nvim")
+	use({
+		"j-hui/fidget.nvim",
+		tag = "legacy",
+	})
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
