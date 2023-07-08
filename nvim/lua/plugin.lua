@@ -8,13 +8,13 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim")
 
 	-- Theme
-	-- use("ellisonleao/gruvbox.nvim")
-	use("morhetz/gruvbox")
-	-- use("projekt0n/github-nvim-theme")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
 	-- Status line
 	use("vim-airline/vim-airline")
-	use("vim-airline/vim-airline-themes")
 
 	-- Show how many search matchs
 	use("google/vim-searchindex")
