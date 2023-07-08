@@ -51,11 +51,6 @@ nnoremap("<leader><leader>f", "<cmd>HopChar1<cr>")
 nnoremap("<leader><leader>w", "<cmd>HopWord<cr>")
 nnoremap("<leader><leader>l", "<cmd>HopWordCurrentLine<cr>")
 
--- quickfix
-nnoremap("<leader>cc", "<cmd>cclose<cr>")
-nnoremap("<leader>,", "<cmd>cprev<cr>")
-nnoremap("<leader>.", "<cmd>cnext<cr>")
-
 -- align
 vnoremap("ga", "<Plug>(EasyAlign)")
 nnoremap("ga", "<Plug>(EasyAlign)")

@@ -58,21 +58,10 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
--- quickfix
-local qf = vim.api.nvim_create_augroup("qf_options", { clear = true })
-vim.api.nvim_create_autocmd({ "WinEnter" }, {
-	group = qf,
-	pattern = { "*" },
-	callback = function()
-		if vim.fn.winnr("$") == 1 and vim.bo.buftype == "quickfix" then
-			vim.cmd("q")
-		end
-	end,
-})
-
--- lua format
+-- format
 local format = vim.api.nvim_create_augroup("formatter_options", { clear = true })
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+-- lua
+vim.api.nvim_create_autocmd("BufWritePost", {
 	group = format,
 	pattern = { "*.lua" },
 	callback = function(opts)
@@ -83,8 +72,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	end,
 })
 
--- shell format
-vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+-- shell
+vim.api.nvim_create_autocmd("BufWritePost", {
 	group = format,
 	pattern = { "*.sh" },
 	callback = function(opts)
@@ -92,5 +81,23 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 		vim.fn.execute(":silent !shfmt -l -w " .. opts.file)
 		vim.api.nvim_exec("edit!", true)
 		vim.fn.winrestview(view)
+	end,
+})
+
+-- go
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = format,
+	pattern = "*.go",
+	callback = function()
+		vim.lsp.buf.format({ async = true })
+	end,
+})
+
+-- rust
+vim.api.nvim_create_autocmd("BufWritePost", {
+	group = format,
+	pattern = "*.rs",
+	callback = function()
+		vim.lsp.buf.format({ async = true })
 	end,
 })

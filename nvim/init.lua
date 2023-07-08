@@ -16,9 +16,7 @@ try_require("config.toggleterm")
 try_require("config.nvim_tree")
 -- try_require("config.treesitter")
 try_require("config.telescope")
-try_require("config.vim_go")
 try_require("config.cmp")
-try_require("config.rust")
 require("lualine").setup({
 	options = {
 		icons_enabled = false,

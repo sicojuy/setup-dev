@@ -126,10 +126,4 @@ return require("packer").startup(function()
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
-
-	-- go
-	use("fatih/vim-go")
-
-	-- rust
-	use("rust-lang/rust.vim")
 end)
