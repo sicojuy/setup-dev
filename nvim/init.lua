@@ -19,6 +19,14 @@ try_require("config.telescope")
 try_require("config.vim_go")
 try_require("config.cmp")
 try_require("config.rust")
+require("lualine").setup({
+	options = {
+		icons_enabled = false,
+	},
+	sections = {
+		lualine_c = { { "filename", path = 1 } },
+	},
+})
 require("hop").setup()
 require("colorizer").setup()
 require("symbols-outline").setup()

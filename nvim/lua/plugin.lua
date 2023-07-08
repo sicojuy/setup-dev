@@ -9,12 +9,21 @@ return require("packer").startup(function()
 
 	-- Theme
 	use({
+		"folke/tokyonight.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {},
+	})
+	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
 
 	-- Status line
-	use("vim-airline/vim-airline")
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "nvim-tree/nvim-web-devicons", opt = true },
+	})
 
 	-- Show how many search matchs
 	use("google/vim-searchindex")
