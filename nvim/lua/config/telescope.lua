@@ -30,7 +30,6 @@ require("telescope").setup({
 			"^output/",
 			"mock/",
 			"mocks/",
-			"%_test.go",
 			"%.o",
 			"%.so",
 		},

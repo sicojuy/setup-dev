@@ -57,6 +57,12 @@ lspconfig["rust_analyzer"].setup({
 	},
 })
 
+-- python
+lspconfig["pyright"].setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+
 -- lsp signature
 local lsp_signature = require("lsp_signature")
 lsp_signature.setup({})
