@@ -1,8 +1,24 @@
 [user]
     name = sicojuy
     email = ziqianliao@gmail.com
+
 [init]
     defaultBranch = main
     templatedir = ~/.gittemplates
+
 [pull]
     rebase = true
+
+[diff]
+        tool = vimdiff
+[difftool]
+        prompt = false
+[difftool "vimdiff"]
+        path = nvim
+
+[merge]
+        tool = vimdiff
+[mergetool]
+        prompt = false
+[mergetool "vimdiff"]
+        path = nvim
