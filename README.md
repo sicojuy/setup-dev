@@ -4,6 +4,7 @@
 
 * go
 * rust
+* python
 * neovim
 * vim
 * cmake
@@ -15,6 +16,7 @@
 * pynvim(nvim)
 * shfmt(nvim)
 * stylua(nvim) 
+* pyright(nvim)
 
 ## setup vim
 
