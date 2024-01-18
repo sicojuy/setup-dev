@@ -10,6 +10,7 @@
 * cmake
 * ripgrep
 * fd
+* gotests
 * python-pip
 * rust-analyzer(nvim)
 * clangd(nvim)
@@ -17,29 +18,6 @@
 * shfmt(nvim)
 * stylua(nvim) 
 * pyright(nvim)
-
-## setup vim
-
-Copy vim config
-```
-cp -r vim ~/.vim
-```
-
-Install vim plugins
-```
-vim -c "PlugInstall"
-```
-
-Install go binaries
-```
-vim -c "GoInstallBinaries"
-```
-
-Install YouCompleteMe
-```
-cd ~/.vim/plugged/YouCompleteMe
-python3 install.py --clangd-completer --go-completer --rust-completer
-```
 
 ## setup neovim
 
@@ -61,4 +39,27 @@ nvim -c "PackerInstall"
 Install go binaries
 ```
 nvim -c "GoInstallBinaries"
+```
 
+## [deprecated] setup vim 
+
+Copy vim config
+```
+cp -r vim ~/.vim
+```
+
+Install vim plugins
+```
+vim -c "PlugInstall"
+```
+
+Install go binaries
+```
+vim -c "GoInstallBinaries"
+```
+
+Install YouCompleteMe
+```
+cd ~/.vim/plugged/YouCompleteMe
+python3 install.py --clangd-completer --go-completer --rust-completer
+```
