@@ -13,6 +13,7 @@
         tool = vimdiff
 [difftool]
         prompt = false
+        trustExitCode = true
 [difftool "vimdiff"]
         path = nvim
 
@@ -20,5 +21,6 @@
         tool = vimdiff
 [mergetool]
         prompt = false
+        trustExitCode = true
 [mergetool "vimdiff"]
         path = nvim

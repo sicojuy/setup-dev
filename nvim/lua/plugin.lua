@@ -111,12 +111,10 @@ return require("packer").startup(function()
 			"hrsh7th/cmp-buffer", -- cmp buffer
 			"hrsh7th/cmp-path", -- cmp path
 			"hrsh7th/cmp-cmdline", -- cmp cmdline
+			"hrsh7th/cmp-vsnip",
+			"hrsh7th/vim-vsnip",
 		},
 	})
-
-	-- vsnip
-	use("hrsh7th/cmp-vsnip")
-	use("hrsh7th/vim-vsnip")
 
 	-- nvim-lsp progress
 	use({
@@ -126,4 +124,7 @@ return require("packer").startup(function()
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
+
+	-- gotests
+	use("buoto/gotests-vim")
 end)

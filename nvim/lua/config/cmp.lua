@@ -76,6 +76,12 @@ cmp.setup({
 			vim.fn["vsnip#anonymous"](args.body)
 		end,
 	},
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+		end,
+	},
 	mapping = cmp.mapping.preset.insert({
 		["<C-u>"] = cmp.mapping.scroll_docs(-4),
 		["<C-d>"] = cmp.mapping.scroll_docs(4),

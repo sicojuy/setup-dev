@@ -73,10 +73,3 @@ nnoremap("<leader>fb", builtin.buffers)
 nnoremap("<leader>fh", builtin.search_history)
 nnoremap("<leader>fo", builtin.oldfiles)
 nnoremap("<leader>fr", builtin.resume)
-
--- go debug
-nnoremap("<leader>gg", "<cmd>GoDebugNext<cr>")
-nnoremap("<leader>gs", "<cmd>GoDebugStep<cr>")
-nnoremap("<leader>go", "<cmd>GoDebugStepOut<cr>")
-nnoremap("<leader>gb", "<cmd>GoDebugBreakpoint<cr>")
-nnoremap("<leader>gc", "<cmd>GoDebugContinue<cr>")

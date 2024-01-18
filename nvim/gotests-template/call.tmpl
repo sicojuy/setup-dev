@@ -1,0 +1,1 @@
+{{define "call"}}{{with .Receiver}}{{Receiver .}}.{{end}}{{.Name}}({{range $i, $el := .Parameters}}{{if $i}}, {{end}}{{Param .}}{{if .Type.IsVariadic}}...{{end}}{{end}}){{end}}
