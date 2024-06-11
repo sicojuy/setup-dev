@@ -1,5 +1,3 @@
-import = ["~/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
-
 live_config_reload = true
 
 [env]
@@ -18,18 +16,17 @@ y = 10
 size = 16.0
 
 [font.bold]
-family = "SFMono Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Heavy"
 
 [font.bold_italic]
-family = "SFMono Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Heavy Italic"
 
 [font.italic]
-family = "SFMono Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Medium Italic"
 
 [font.normal]
-family = "SFMono Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Medium"
-
