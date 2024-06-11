@@ -34,6 +34,9 @@ vim.opt.shortmess:append("c")
 vim.opt.formatoptions:append("m")
 vim.opt.formatoptions:append("B")
 vim.opt.mouse = "" -- disable mouse
+vim.opt.title = true
+vim.opt.titlestring = '%{expand("%:p:h")}'
+-- vim.opt.titlestring = "%F"
 
 -- search
 vim.opt.ignorecase = true -- search ignore case
