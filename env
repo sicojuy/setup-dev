@@ -1,7 +1,4 @@
 # brew install coreutils
-# mkdir ~/.dircolors
-# git clone https://github.com/gibbling666/dircolors.git ~/.dircolors
-# eval $(gdircolors ~/.dircolors/dircolors.ansi-dark)
 
 # oh-my-zsh
 # plugins=(git zsh-autosuggestions zsh-fzf-history-search)
@@ -26,7 +23,7 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 
 export GOPROXY='https://goproxy.cn|direct'
 export GOSUMDB='sum.golang.google.cn'
-#export GOFLAGS=""
+export GOFLAGS="-gcflags=all=-N -gcflags=all=-l"
 
 # rust
 . "$HOME/.cargo/env"
