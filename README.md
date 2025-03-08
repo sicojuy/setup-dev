@@ -70,6 +70,7 @@ cp alacritty.toml ~/.config/alacritty
 brew install neovim
 brew install cmake ripgrep fd
 brew install rust-analyzer
+brew install pyright
 pip3 install pynvim
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 cargo install stylua

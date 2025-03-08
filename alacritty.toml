@@ -15,20 +15,20 @@ y = 10
 size = 16.0
 
 [font.bold]
-family = "SauceCodePro Nerd Font"
-style = "Heavy"
+#family = "SauceCodePro Nerd Font"
+#style = "Heavy"
 
 [font.bold_italic]
-family = "SauceCodePro Nerd Font"
-style = "Heavy Italic"
+#family = "SauceCodePro Nerd Font"
+#style = "Heavy Italic"
 
 [font.italic]
-family = "SauceCodePro Nerd Font"
-style = "Medium Italic"
+#family = "SauceCodePro Nerd Font"
+#style = "Medium Italic"
 
 [font.normal]
-family = "SauceCodePro Nerd Font"
-style = "Medium"
+#family = "SauceCodePro Nerd Font"
+#style = "Medium"
 
 [general]
 live_config_reload = true
