@@ -46,9 +46,6 @@ return require("packer").startup(function()
 	-- thrift
 	use("solarnz/thrift.vim")
 
-	-- vimwiki
-	use("vimwiki/vimwiki")
-
 	-- Git decorations
 	use("lewis6991/gitsigns.nvim")
 
@@ -124,7 +121,4 @@ return require("packer").startup(function()
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
-
-	-- gotests
-	use("buoto/gotests-vim")
 end)

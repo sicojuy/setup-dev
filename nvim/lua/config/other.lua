@@ -18,10 +18,6 @@ vim.cmd([[
     highlight ConflictMarkerEnd guibg=#2f628e
 ]])
 
--- gotests
-vim.g.gotests_template_dir = vim.fn.expand("$HOME/.config/nvim/gotests-template")
-vim.g.gotests_template = ""
-
 require("lualine").setup({
 	options = {
 		icons_enabled = false,
