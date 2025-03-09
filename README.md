@@ -69,6 +69,7 @@ cp alacritty.toml ~/.config/alacritty
 ```
 brew install neovim
 brew install cmake ripgrep fd
+brew install gopls
 brew install rust-analyzer
 brew install pyright
 pip3 install pynvim
