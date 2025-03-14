@@ -5,8 +5,17 @@
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 ```
 
-2. config file: ~/.zprofile
+2. install go
+
+3. install rust
 ```
+cp cargo/config.toml ~/.cargo/
+```
+
+4. config ~/.zprofile
+```
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # oh-my-zsh
 # plugins=(git zsh-autosuggestions zsh-fzf-history-search)
 
@@ -39,39 +48,35 @@ export GOFLAGS="-gcflags=all=-N -gcflags=all=-l"
 . "$HOME/.cargo/env"
 export RUSTUP_DIST_SERVER="https://mirrors.ustc.edu.cn/rust-static"
 export RUSTUP_UPDATE_ROOT="https://mirrors.ustc.edu.cn/rust-static/rustup"
-cp cargo/config.toml ~/.cargo/
 ```
 
-3. install brew
+5. install brew
 ```
 git clone --depth=1 https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/install.git brew-install
 
 /bin/bash brew-install/install.sh
 ```
 
-4. install coreutils
+6. install coreutils
 ```
 brew install coreutils
 ```
 
-5. install alacritty
+7. install alacritty
 ```
 brew install --cask alacritty
 mkdir ~/.config/alacritty
 cp alacritty.toml ~/.config/alacritty
 ```
 
-7. install go
-
-8. install rust
-
-9. install neovim
+8. install neovim
 ```
 brew install neovim
 brew install cmake ripgrep fd
 brew install gopls
 brew install rust-analyzer
 brew install pyright
+brew install --cask font-sauce-code-pro-nerd-font
 pip3 install pynvim
 go install mvdan.cc/sh/v3/cmd/shfmt@latest
 cargo install stylua
@@ -80,7 +85,7 @@ cp -r nvim ~/.config/nvim
 nvim -c "PackerInstall"
 ```
 
-10. git config
+9. git config
 ```
 cp gitconfig ~/.gitconfig
 cp -r gittemplates/ ~/.gittemplates
