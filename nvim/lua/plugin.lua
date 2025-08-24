@@ -114,10 +114,7 @@ return require("packer").startup(function()
 	})
 
 	-- nvim-lsp progress
-	use({
-		"j-hui/fidget.nvim",
-		tag = "legacy",
-	})
+	use("j-hui/fidget.nvim")
 
 	-- show function signature
 	use("ray-x/lsp_signature.nvim")
