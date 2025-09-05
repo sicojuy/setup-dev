@@ -23,13 +23,15 @@ end
 require("telescope").setup({
 	defaults = require("telescope.themes").get_ivy({
 		file_ignore_patterns = {
-			"^.git/",
-			"^kitex_gen/",
-			"^thrift_gen/",
-			"^clients/",
-			"^output/",
+			".git/",
+			"kitex_gen/",
+			"thrift_gen/",
+			"clients/",
+			"output/",
 			"mock/",
 			"mocks/",
+			"%_test.go",
+			"go.sum",
 			"%.o",
 			"%.so",
 		},

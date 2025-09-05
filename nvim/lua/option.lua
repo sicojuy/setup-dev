@@ -39,7 +39,7 @@ vim.opt.titlestring = '%{expand("%:p:h")}'
 -- vim.opt.titlestring = "%F"
 
 -- search
-vim.opt.ignorecase = true -- search ignore case
+vim.opt.ignorecase = false -- search ignore case
 vim.opt.smartcase = true -- case sensitive if contain upppercase
 vim.opt.hlsearch = true -- highlight search
 vim.opt.incsearch = false -- no incremental search
