@@ -30,10 +30,10 @@ require("telescope").setup({
 			"output/",
 			"mock/",
 			"mocks/",
-			"%_test.go",
 			"go.sum",
 			"%.o",
 			"%.so",
+			"script/",
 		},
 		buffer_previewer_maker = new_maker,
 		mappings = {
