@@ -34,6 +34,7 @@ require("telescope").setup({
 			"%.o",
 			"%.so",
 			"script/",
+			"%_test.go",
 		},
 		buffer_previewer_maker = new_maker,
 		mappings = {

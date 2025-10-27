@@ -30,5 +30,8 @@ style = "Medium Italic"
 family = "SauceCodePro Nerd Font"
 style = "Medium"
 
+[selection]
+semantic_escape_chars = "*.,│`|:\"' ()[]{}<>\t"
+
 [general]
 live_config_reload = true

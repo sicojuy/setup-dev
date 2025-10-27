@@ -37,30 +37,21 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 local lspconfig = require("lspconfig")
 
 -- go
-lspconfig["gopls"].setup({
+lspconfig.gopls.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {},
 })
-
--- clangd
---[[
-lspconfig["clangd"].setup({
-	on_attach = on_attach,
-	capabilities = capabilities,
-})
---]]
 
 -- rust
-lspconfig["rust_analyzer"].setup({
+lspconfig.rust_analyzer.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = {
-		["rust-analyzer"] = {},
-	},
+	settings = {},
 })
 
 -- python
-lspconfig["pyright"].setup({
+lspconfig.pyright.setup({
 	on_attach = on_attach,
 	capabilities = capabilities,
 })
@@ -76,12 +67,6 @@ cmp.setup({
 	snippet = {
 		expand = function(args)
 			vim.fn["vsnip#anonymous"](args.body)
-		end,
-	},
-	snippet = {
-		-- REQUIRED - you must specify a snippet engine
-		expand = function(args)
-			vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
 		end,
 	},
 	mapping = cmp.mapping.preset.insert({
