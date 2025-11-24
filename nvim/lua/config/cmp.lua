@@ -48,7 +48,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		if not is_gopls_running then
 			vim.fn.system("rm -f /tmp/gopls-shared.sock")
 			io.popen('gopls serve -listen "unix;/tmp/gopls-shared.sock" -debug :0 >>"/tmp/gopls.log" 2>&1 &')
-			vim.notify("start gopls server", vim.log.levels.INFO)
 		end
 	end,
 })
