@@ -38,9 +38,20 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 vim.lsp.config("gopls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
-	settings = {},
+	cmd = { "gopls", "-remote=unix;/tmp/gopls-shared.sock" },
 })
 vim.lsp.enable("gopls")
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "go",
+	callback = function()
+		local is_gopls_running = vim.fn.system("pgrep -f 'gopls serve'") ~= ""
+		if not is_gopls_running then
+			vim.fn.system("rm -f /tmp/gopls-shared.sock")
+			io.popen('gopls serve -listen "unix;/tmp/gopls-shared.sock" -debug :0 >>"/tmp/gopls.log" 2>&1 &')
+			vim.notify("start gopls server", vim.log.levels.INFO)
+		end
+	end,
+})
 
 -- rust
 vim.lsp.config("rust_analyzer", {
