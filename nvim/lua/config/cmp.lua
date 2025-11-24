@@ -34,27 +34,29 @@ end
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-local lspconfig = require("lspconfig")
-
 -- go
-lspconfig.gopls.setup({
+vim.lsp.config("gopls", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {},
 })
+vim.lsp.enable("gopls")
 
 -- rust
-lspconfig.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
 	on_attach = on_attach,
 	capabilities = capabilities,
 	settings = {},
 })
+vim.lsp.enable("rust_analyzer")
 
 -- python
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
 	on_attach = on_attach,
 	capabilities = capabilities,
+	settings = {},
 })
+vim.lsp.enable("pyright")
 
 -- lsp signature
 local lsp_signature = require("lsp_signature")

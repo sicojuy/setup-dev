@@ -84,9 +84,6 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 
-	-- Symbols outline
-	use("simrat39/symbols-outline.nvim")
-
 	-- Fuzzy picker
 	use({
 		"nvim-telescope/telescope.nvim",

@@ -31,9 +31,13 @@ require("hop").setup()
 
 require("colorizer").setup()
 
-require("symbols-outline").setup()
-
-require("fidget").setup()
+require("fidget").setup({
+	notification = {
+		window = {
+			avoid = { "NvimTree" },
+		},
+	},
+})
 
 require("windows").setup({
 	autowidth = {

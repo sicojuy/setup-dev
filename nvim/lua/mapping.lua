@@ -61,9 +61,6 @@ nnoremap("<leader>m", "<cmd>MarkdownPreview<cr>")
 -- nvim tree
 nnoremap("<leader>n", "<cmd>NvimTreeToggle<cr>")
 
--- symbols outline
-nnoremap("<leader>s", "<cmd>SymbolsOutline<cr>")
-
 -- telescope
 local builtin = require("telescope.builtin")
 nnoremap("<leader>ff", builtin.find_files)
