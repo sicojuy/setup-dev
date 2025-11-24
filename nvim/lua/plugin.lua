@@ -105,8 +105,6 @@ return require("packer").startup(function()
 			"hrsh7th/cmp-buffer", -- cmp buffer
 			"hrsh7th/cmp-path", -- cmp path
 			"hrsh7th/cmp-cmdline", -- cmp cmdline
-			"hrsh7th/cmp-vsnip",
-			"hrsh7th/vim-vsnip",
 		},
 	})
 
