@@ -32,7 +32,7 @@ return require("packer").startup(function()
 	use("farmergreg/vim-lastplace")
 
 	-- Color codes rendering
-	use("norcalli/nvim-colorizer.lua")
+	use("catgoose/nvim-colorizer.lua")
 
 	-- align
 	use("junegunn/vim-easy-align")
@@ -81,7 +81,9 @@ return require("packer").startup(function()
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
+		branch = "master",
+		lazy = false,
+		build = ":TSUpdate",
 	})
 
 	-- Fuzzy picker
