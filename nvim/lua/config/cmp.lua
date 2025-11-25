@@ -42,26 +42,7 @@ vim.lsp.config("gopls", {
 		"gopls",
 		"-remote=unix;/tmp/gopls-shared.sock",
 	},
-	settings = {
-		gopls = {
-			buildFlags = { "-tags=ignore" },
-			analyses = {
-				unusedparams = true,
-				unusedwrite = true,
-			},
-			staticcheck = true,
-			gofumpt = true,
-			hints = {
-				assignVariableTypes = false,
-				compositeLiteralFields = false,
-			},
-			directoryFilters = {
-				"-.git",
-				"-output",
-				"-kitex_gen",
-			},
-		},
-	},
+	settings = {},
 })
 vim.lsp.enable("gopls")
 vim.api.nvim_create_autocmd("FileType", {

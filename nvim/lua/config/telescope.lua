@@ -36,11 +36,7 @@ require("telescope").setup({
 			"script/",
 		},
 		buffer_previewer_maker = new_maker,
-		mappings = {
-			i = {
-				--['<esc>'] = actions.close,
-			},
-		},
+		mappings = {},
 	}),
 	pickers = {},
 	extensions = {},
