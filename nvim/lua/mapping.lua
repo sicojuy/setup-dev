@@ -68,6 +68,11 @@ nnoremap("<leader>fg", builtin.live_grep)
 nnoremap("<leader>fs", function()
 	builtin.grep_string({ word_match = "-w", additional_args = { "--case-sensitive" } })
 end)
+-- find function implementation
+nnoremap("<leader>fi", function()
+	local pattern = "^func\\s+(?:\\([\\s\\S]*?\\)\\s+)?" .. vim.fn.expand("<cword>") .. "\\s*\\("
+	builtin.grep_string({ search = pattern, use_regex = true })
+end)
 nnoremap("<leader>fb", builtin.buffers)
 nnoremap("<leader>fh", builtin.search_history)
 nnoremap("<leader>fo", builtin.oldfiles)
