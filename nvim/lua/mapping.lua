@@ -31,7 +31,6 @@ nnoremap("<c-c>", "<c-w>c")
 nnoremap("<c-a>", "<cmd>WindowsMaximize<cr>")
 
 -- tab
-nnoremap("<Tab>", "gt")
 nnoremap("<leader>1", "1gt")
 nnoremap("<leader>2", "2gt")
 nnoremap("<leader>3", "3gt")
@@ -41,13 +40,11 @@ nnoremap("<leader>6", "6gt")
 nnoremap("<leader>7", "7gt")
 nnoremap("<leader>8", "8gt")
 nnoremap("<leader>9", "9gt")
-nnoremap("<leader>0", "<cmd>tablast<cr>")
-nnoremap("<leader>tt", "<cmd>tabnew<cr>")
-nnoremap("<leader>th", "<cmd>tabmove -1<cr>")
-nnoremap("<leader>tl", "<cmd>tabmove +1<cr>")
+nnoremap("<leader>t", "<cmd>tabnew<cr>")
+nnoremap("<leader>c", "<cmd>tabclose<cr>")
 
 -- hop.nvim
-nnoremap("<leader><leader>f", "<cmd>HopChar1<cr>")
+nnoremap("<leader><leader>c", "<cmd>HopChar1<cr>")
 nnoremap("<leader><leader>w", "<cmd>HopWord<cr>")
 nnoremap("<leader><leader>l", "<cmd>HopWordCurrentLine<cr>")
 
