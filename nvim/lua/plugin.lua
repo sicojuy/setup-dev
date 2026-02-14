@@ -9,14 +9,11 @@ return require("packer").startup(function()
 
 	-- Theme
 	use({
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
-	})
-	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
+	})
+	use({
+		"EdenEast/nightfox.nvim",
 	})
 
 	-- Status line
