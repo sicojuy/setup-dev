@@ -25,3 +25,6 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 # path
 export PATH=/opt/nvim/bin:$HOME/.local/bin:$PATH
+
+# tmux
+alias code="tmux attach -t devbox || tmux new -s devbox"

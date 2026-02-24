@@ -38,6 +38,4 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
 export PATH="$HOME/.local/bin:$PATH"
 
 # tmux
-function code() {
-    ssh -t devbox "tmux attach -t devbox || tmux new -s devbox"
-}
+alias code="ssh -t devbox 'tmux attach -t devbox || tmux new -s devbox'"
