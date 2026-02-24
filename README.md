@@ -12,7 +12,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 cp cargo/config.toml ~/.cargo/
 ```
 
-4. config ~/.zprofile
+4. config ~/.zshrc
 ```
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -85,7 +85,13 @@ cp -r nvim ~/.config/nvim
 nvim -c "PackerInstall"
 ```
 
-9. git config
+9. install tmux
+```
+apt install tmux
+cp tmux.conf ~/.tmux.conf
+```
+
+10. git config
 ```
 cp gitconfig ~/.gitconfig
 cp -r gittemplates/ ~/.gittemplates

@@ -27,3 +27,8 @@ export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 # java
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# tmux
+function code() {
+    ssh -t devbox "tmux attach -t devbox || tmux new -s devbox"
+}
