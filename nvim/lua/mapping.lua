@@ -22,13 +22,11 @@ cnoremap("<Esc>f", "<S-Right>")
 cnoremap("<Esc>b", "<S-Left>")
 
 -- window
-nnoremap("<c-h>", "<c-w>h")
-nnoremap("<c-j>", "<c-w>j")
-nnoremap("<c-k>", "<c-w>k")
-nnoremap("<c-l>", "<c-w>l")
-nnoremap("<c-c>", "<c-w>c")
-
-nnoremap("<c-a>", "<cmd>WindowsMaximize<cr>")
+nnoremap("<leader>h", "<c-w>h")
+nnoremap("<leader>j", "<c-w>j")
+nnoremap("<leader>k", "<c-w>k")
+nnoremap("<leader>l", "<c-w>l")
+nnoremap("<leader>z", "<cmd>WindowsMaximize<cr>")
 
 -- tab
 nnoremap("<leader>1", "1gt")
