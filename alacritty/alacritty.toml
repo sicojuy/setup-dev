@@ -31,7 +31,15 @@ family = "SauceCodePro Nerd Font"
 style = "Medium"
 
 [selection]
-semantic_escape_chars = "*.,│`|:\"' ()[]{}<>\t"
+semantic_escape_chars = "!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
 
 [general]
 live_config_reload = true
+import = [
+    "~/.config/alacritty/nightfox.toml"
+]
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
