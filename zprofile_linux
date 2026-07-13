@@ -1,5 +1,5 @@
 # base
-# export WORDCHARS='*?[]~=&;!#$%^(){}<>\'
+export WORDCHARS="!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
 
 # alias
 alias ll='ls -l'
