@@ -45,5 +45,5 @@ mods = "Shift"
 chars = "\u001B\r"
 
 [colors.selection]
-text = "#f0f0f0"
-background = "#2d5a9e"
+text = "#3c3836"
+background = "#d8c27f"
