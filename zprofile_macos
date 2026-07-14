@@ -1,7 +1,7 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # base
-export WORDCHARS="!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
+export WORDCHARS='*?[]~=/&;!#$%^(){}<>'
 
 # alias
 alias ls='gls --color=auto'
