@@ -52,6 +52,9 @@ return require("packer").startup(function()
 	-- Git premier
 	use("tpope/vim-fugitive")
 
+	-- Git diffview
+	use("sindrets/diffview.nvim")
+
 	-- Terminal
 	use("akinsho/toggleterm.nvim")
 
