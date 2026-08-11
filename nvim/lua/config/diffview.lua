@@ -5,7 +5,7 @@ require("diffview").setup({
 	diff_binaries = false, -- 是否显示二进制文件 diff
 	enhanced_diff_hl = false, -- 增强差异高亮（需自定义 highlight group）
 	git_cmd = { "git" }, -- git 可执行文件及默认参数
-	use_icons = true, -- 使用文件图标（需 nvim-web-devicons）
+	use_icons = false, -- 使用文件图标（需 nvim-web-devicons）
 	show_help_hints = true, -- 显示帮助提示
 	watch_index = true, -- 监听 git index 变化并自动更新
 
@@ -65,12 +65,6 @@ require("diffview").setup({
 			position = "bottom",
 			height = 16,
 		},
-	},
-
-	-- 命令默认参数
-	default_args = {
-		DiffviewOpen = {},
-		DiffviewFileHistory = {},
 	},
 
 	-- 快捷键配置（见下文详解）
