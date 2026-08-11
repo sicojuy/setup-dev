@@ -17,10 +17,9 @@ require("gitsigns").setup({
 			vim.keymap.set(mode, l, r, opts)
 		end
 
-		-- Navigation
-		map("n", "<leader>gn", function()
+		map("n", "]c", function()
 			if vim.wo.diff then
-				return "<leader>gn"
+				return "]c"
 			end
 			vim.schedule(function()
 				gs.next_hunk()
@@ -28,9 +27,9 @@ require("gitsigns").setup({
 			return "<Ignore>"
 		end, { expr = true })
 
-		map("n", "<leader>gp", function()
+		map("n", "[c", function()
 			if vim.wo.diff then
-				return "<leader>gp"
+				return "[c"
 			end
 			vim.schedule(function()
 				gs.prev_hunk()
