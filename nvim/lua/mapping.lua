@@ -39,7 +39,7 @@ nnoremap("<leader>7", "7gt")
 nnoremap("<leader>8", "8gt")
 nnoremap("<leader>9", "9gt")
 nnoremap("<leader>t", "<cmd>tabnew<cr>")
-nnoremap("<leader>c", "<cmd>tabclose<cr>")
+nnoremap("<leader>q", "<cmd>tabclose<cr>")
 
 -- hop.nvim
 nnoremap("<leader><leader>c", "<cmd>HopChar1<cr>")

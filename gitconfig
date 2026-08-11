@@ -8,19 +8,3 @@
 
 [pull]
     rebase = true
-
-[diff]
-        tool = vimdiff
-[difftool]
-        prompt = false
-        trustExitCode = true
-[difftool "vimdiff"]
-        path = nvim
-
-[merge]
-        tool = vimdiff
-[mergetool]
-        prompt = false
-        trustExitCode = true
-[mergetool "vimdiff"]
-        path = nvim

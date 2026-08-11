@@ -10,6 +10,7 @@ require("impatient").enable_profile()
 -- plugin config
 try_require("config.tabline")
 try_require("config.gitsigns")
+try_require("config.diffview")
 try_require("config.nvim_tree")
 try_require("config.treesitter")
 try_require("config.telescope")
