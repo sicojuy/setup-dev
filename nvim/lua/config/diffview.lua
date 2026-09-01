@@ -10,13 +10,9 @@ require("diffview").setup({
 	watch_index = true, -- 监听 git index 变化并自动更新
 
 	-- 图标配置
-	icons = {
-		folder_closed = "",
-		folder_open = "",
-	},
 	signs = {
-		fold_closed = "",
-		fold_open = "",
+		fold_closed = "▷",
+		fold_open = "▽",
 		done = "✓",
 	},
 
@@ -68,6 +64,14 @@ require("diffview").setup({
 	},
 
 	-- 快捷键配置（见下文详解）
+	-- <leader>co 选择 OURS 版本
+	-- <leader>ct 选择 THEIRS 版本
+	-- <leader>cb 选择 BASE 版本
+	-- <leader>ca 保留所有版本
+	-- dx 删除冲突区域
+	-- [x / ]x 上一个 / 下一个冲突块
+	-- <leader>cO 整个文件选择 OURS
+	-- <leader>cT 整个文件选择 THEIRS
 	keymaps = {
 		disable_defaults = false,
 		view = {
