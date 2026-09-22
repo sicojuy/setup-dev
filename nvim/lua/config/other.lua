@@ -45,3 +45,15 @@ require("toggleterm").setup({
 	persist_size = true,
 	direction = "horizontal",
 })
+
+-- markdown
+vim.g.mkdp_port = "8421"
+if vim.fn.has("macunix") == 1 then
+	vim.g.foo = 2
+	vim.g.mkdp_path_to_chrome = "open -a Google\\ Chrome"
+else
+	vim.g.foo = 1
+	vim.g.mkdp_echo_preview_url = 1
+	vim.g.mkdp_open_to_the_world = 1
+	vim.g.mkdp_open_ip = "devbox"
+end

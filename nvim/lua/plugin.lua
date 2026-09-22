@@ -7,6 +7,9 @@ return require("packer").startup(function()
 	-- Speed up loading Lua modules in Neovim to improve startup time.
 	use("lewis6991/impatient.nvim")
 
+	-- devicons
+	use("nvim-tree/nvim-web-devicons")
+
 	-- Theme
 	use({
 		"folke/tokyonight.nvim",
@@ -49,9 +52,6 @@ return require("packer").startup(function()
 	-- Git decorations
 	use("lewis6991/gitsigns.nvim")
 
-	-- Git conflict marker
-	use("rhysd/conflict-marker.vim")
-
 	-- Git premier
 	use("tpope/vim-fugitive")
 
@@ -64,9 +64,6 @@ return require("packer").startup(function()
 	-- markdown
 	use({
 		"iamcco/markdown-preview.nvim",
-		requires = {
-			"iamcco/mathjax-support-for-mkdp",
-		},
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
