@@ -2,6 +2,8 @@
 --vim.cmd([[colorscheme catppuccin]])
 vim.cmd([[colorscheme tokyonight]])
 
+require("custom.hop").setup()
+
 require("lualine").setup({
 	options = {
 		icons_enabled = false,
@@ -10,8 +12,6 @@ require("lualine").setup({
 		lualine_c = { { "filename", path = 1 } },
 	},
 })
-
-require("hop").setup()
 
 require("colorizer").setup()
 

@@ -41,10 +41,8 @@ nnoremap("<leader>9", "9gt")
 nnoremap("<leader>t", "<cmd>tabnew<cr>")
 nnoremap("<leader>q", "<cmd>tabclose<cr>")
 
--- hop.nvim
-nnoremap("<leader><leader>c", "<cmd>HopChar1<cr>")
-nnoremap("<leader><leader>w", "<cmd>HopWord<cr>")
-nnoremap("<leader><leader>l", "<cmd>HopWordCurrentLine<cr>")
+-- hop
+nnoremap("<leader>w", require("custom.hop").word_current_line)
 
 -- align
 vnoremap("ga", "<Plug>(EasyAlign)")

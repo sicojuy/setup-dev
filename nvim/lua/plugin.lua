@@ -40,12 +40,6 @@ return require("packer").startup(function()
 	-- align
 	use("junegunn/vim-easy-align")
 
-	-- hop anywhere
-	use({
-		"phaazon/hop.nvim",
-		branch = "v2", -- optional but strongly recommended
-	})
-
 	-- thrift
 	use("solarnz/thrift.vim")
 
