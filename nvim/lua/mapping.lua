@@ -61,12 +61,21 @@ nnoremap("<leader>fg", builtin.live_grep)
 nnoremap("<leader>fs", function()
 	builtin.grep_string({ word_match = "-w", additional_args = { "--case-sensitive" } })
 end)
--- find function implementation
-nnoremap("<leader>fi", function()
-	local pattern = "^func\\s+(?:\\([\\s\\S]*?\\)\\s+)?" .. vim.fn.expand("<cword>") .. "\\s*\\("
-	builtin.grep_string({ search = pattern, use_regex = true, additional_args = { "-g", "*.go", "-g", "!*_test.go" } })
-end)
 nnoremap("<leader>fb", builtin.buffers)
 nnoremap("<leader>fh", builtin.search_history)
 nnoremap("<leader>fo", builtin.oldfiles)
 nnoremap("<leader>fr", builtin.resume)
+-- find function definitions
+nnoremap("<leader>fd", function()
+	builtin.lsp_definitions({ jump_type = "never" })
+end)
+-- find interface implementation
+nnoremap("<leader>fi", function()
+	--local pattern = "^func\\s+(?:\\([\\s\\S]*?\\)\\s+)?" .. vim.fn.expand("<cword>") .. "\\s*\\("
+	--builtin.grep_string({ search = pattern, use_regex = true, additional_args = { "-g", "*.go", "-g", "!*_test.go" } })
+	builtin.lsp_implementations({ jump_type = "never" })
+end)
+-- find function reference
+nnoremap("<leader>fe", function()
+	builtin.lsp_references({ include_declaration = false, jump_type = "never" })
+end)
