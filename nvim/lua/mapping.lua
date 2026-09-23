@@ -71,8 +71,10 @@ nnoremap("<leader>fd", function()
 end)
 -- find interface implementation
 nnoremap("<leader>fi", function()
-	--local pattern = "^func\\s+(?:\\([\\s\\S]*?\\)\\s+)?" .. vim.fn.expand("<cword>") .. "\\s*\\("
-	--builtin.grep_string({ search = pattern, use_regex = true, additional_args = { "-g", "*.go", "-g", "!*_test.go" } })
+	local pattern = "^func\\s+(?:\\([\\s\\S]*?\\)\\s+)?" .. vim.fn.expand("<cword>") .. "\\s*\\("
+	builtin.grep_string({ search = pattern, use_regex = true, additional_args = { "-g", "*.go", "-g", "!*_test.go" } })
+end)
+nnoremap("<leader>fI", function()
 	builtin.lsp_implementations({ jump_type = "never" })
 end)
 -- find function reference
