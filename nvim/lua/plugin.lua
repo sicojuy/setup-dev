@@ -75,7 +75,7 @@ return require("packer").startup(function()
 	-- treesitter
 	use({
 		"nvim-treesitter/nvim-treesitter",
-		branch = "master",
+		branch = "main",
 		lazy = false,
 		build = ":TSUpdate",
 	})
